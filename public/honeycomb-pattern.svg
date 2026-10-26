@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="138.564" viewBox="0 0 120 138.564">
+  <defs>
+    <style>
+      .hex-outer {
+        fill: #F8F8F8;
+        stroke: #E2E2E2;
+        stroke-width: 1.5;
+      }
+      .hex-inner {
+        fill: #FFFFFF;
+        stroke: #EDEDED;
+        stroke-width: 1;
+      }
+      .hex-bevel-top {
+        fill: none;
+        stroke: #7B7B7B;
+        stroke-width: 1.2;
+        stroke-opacity: 0.25;
+      }
+      .hex-bevel-side {
+        fill: none;
+        stroke: #222222;
+        stroke-width: 1.2;
+        stroke-opacity: 0.15;
+      }
+    </style>
+  </defs>
+  <rect width="120" height="138.564" fill="#FFFFFF" />
+  <polygon class="hex-outer" points="38.5,0 19.25,33.342 -19.25,33.342 -38.5,0 -19.25,-33.342 19.25,-33.342" />
+  <polygon class="hex-inner" points="34,0 17,29.445 -17,29.445 -34,0 -17,-29.445 17,-29.445" />
+  <polygon class="hex-outer" points="158.5,0 139.25,33.342 100.75,33.342 81.5,0 100.75,-33.342 139.25,-33.342" />
+  <polygon class="hex-inner" points="154,0 137,29.445 103,29.445 86,0 103,-29.445 137,-29.445" />
+  <polygon class="hex-outer" points="38.5,138.564 19.25,171.906 -19.25,171.906 -38.5,138.564 -19.25,105.222 19.25,105.222" />
+  <polygon class="hex-inner" points="34,138.564 17,168.009 -17,168.009 -34,138.564 -17,109.119 17,109.119" />
+  <polygon class="hex-outer" points="158.5,138.564 139.25,171.906 100.75,171.906 81.5,138.564 100.75,105.222 139.25,105.222" />
+  <polygon class="hex-inner" points="154,138.564 137,168.009 103,168.009 86,138.564 103,109.119 137,109.119" />
+  <polygon class="hex-outer" points="98.5,69.282 79.25,102.624 40.75,102.624 21.5,69.282 40.75,35.94 79.25,35.94" />
+  <polygon class="hex-inner" points="94,69.282 77,98.727 43,98.727 26,69.282 43,39.837 77,39.837" />
+  <polygon class="hex-outer" points="-21.5,69.282 -40.75,102.624 -79.25,102.624 -98.5,69.282 -79.25,35.94 -40.75,35.94" />
+  <polygon class="hex-inner" points="-26,69.282 -43,98.727 -77,98.727 -94,69.282 -77,39.837 -43,39.837" />
+  <polygon class="hex-outer" points="218.5,69.282 199.25,102.624 160.75,102.624 141.5,69.282 160.75,35.94 199.25,35.94" />
+  <polygon class="hex-inner" points="214,69.282 197,98.727 163,98.727 146,69.282 163,39.837 197,39.837" />
+  <polygon class="hex-outer" points="98.5,-69.282 79.25,-35.94 40.75,-35.94 21.5,-69.282 40.75,-102.624 79.25,-102.624" />
+  <polygon class="hex-inner" points="94,-69.282 77,-39.837 43,-39.837 26,-69.282 43,-98.727 77,-98.727" />
+  <polygon class="hex-outer" points="98.5,207.846 79.25,241.188 40.75,241.188 21.5,207.846 40.75,174.504 79.25,174.504" />
+  <polygon class="hex-inner" points="94,207.846 77,237.291 43,237.291 26,207.846 43,178.401 77,178.401" />
+  <line class="hex-bevel-top" x1="-19.25" y1="33.342" x2="19.25" y2="33.342" />
+  <line class="hex-bevel-top" x1="100.75" y1="33.342" x2="139.25" y2="33.342" />
+  <line class="hex-bevel-top" x1="-19.25" y1="171.906" x2="19.25" y2="171.906" />
+  <line class="hex-bevel-top" x1="100.75" y1="171.906" x2="139.25" y2="171.906" />
+  <line class="hex-bevel-top" x1="40.75" y1="102.624" x2="79.25" y2="102.624" />
+  <line class="hex-bevel-top" x1="-79.25" y1="102.624" x2="-40.75" y2="102.624" />
+  <line class="hex-bevel-top" x1="160.75" y1="102.624" x2="199.25" y2="102.624" />
+  <line class="hex-bevel-top" x1="40.75" y1="-35.94" x2="79.25" y2="-35.94" />
+  <line class="hex-bevel-top" x1="40.75" y1="241.188" x2="79.25" y2="241.188" />
+</svg>

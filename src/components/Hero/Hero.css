@@ -8,37 +8,33 @@
   background-color: var(--color-white);
 }
 
-/* Honeycomb Background Overlay */
-.hero-hex-bg {
+/* Pure CSS Honeycomb Pattern - No DOM elements */
+.hero-section::before {
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+  background-image: url('/honeycomb-pattern.svg');
+  background-repeat: repeat;
+  background-size: 120px 138.564px;
+  background-position: center top;
   pointer-events: none;
   z-index: 0;
   opacity: 0.9;
-}
-
-.hero-hex-svg {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-.hero-hex-fade {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(
+  mask-image: radial-gradient(
     circle at 75% 35%,
-    rgba(255, 255, 255, 0.25) 0%,
-    rgba(255, 255, 255, 0.65) 45%,
-    #FFFFFF 90%
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.45) 55%,
+    transparent 85%
   );
-  pointer-events: none;
+  -webkit-mask-image: radial-gradient(
+    circle at 75% 35%,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.45) 55%,
+    transparent 85%
+  );
 }
 
 .hero-container {
