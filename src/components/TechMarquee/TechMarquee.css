@@ -1,0 +1,160 @@
+.marquee-section {
+  position: relative;
+  overflow: hidden;
+  padding: 2.5rem 0 3.5rem 0;
+  background-color: var(--color-white);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.marquee-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+/* Edge gradient fades for seamless in-and-out appearance */
+.marquee-edge-fade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 12%;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.marquee-edge-fade.left {
+  left: 0;
+  background: linear-gradient(to right, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.marquee-edge-fade.right {
+  right: 0;
+  background: linear-gradient(to left, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+/* Rows */
+.marquee-row {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+}
+
+.marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  width: max-content;
+  will-change: transform;
+}
+
+/* Pause on hover just like Dribbble */
+.marquee-row:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* Row 1: Left Auto-Slide Animation */
+.marquee-slide-left .marquee-track {
+  animation: slideLeftAnimation 36s linear infinite;
+}
+
+@keyframes slideLeftAnimation {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Row 2: Right Auto-Slide Animation */
+.marquee-slide-right .marquee-track {
+  animation: slideRightAnimation 36s linear infinite;
+}
+
+@keyframes slideRightAnimation {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Card Design using exact color palette */
+.marquee-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem 1.5rem;
+  background-color: var(--color-tertiary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  flex-shrink: 0;
+  cursor: default;
+  transition: border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.marquee-card:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.marquee-icon-box {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.marquee-card:hover .marquee-icon-box {
+  background-color: #000000;
+  transform: scale(1.05);
+}
+
+.marquee-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.marquee-title {
+  font-family: var(--font-title);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1.2;
+}
+
+.marquee-tag {
+  font-size: 0.76rem;
+  color: var(--color-secondary);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  margin-top: 0.2rem;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .marquee-section {
+    padding: 1.75rem 0 2.5rem 0;
+  }
+  .marquee-card {
+    padding: 0.7rem 1.15rem;
+  }
+  .marquee-icon-box {
+    width: 36px;
+    height: 36px;
+  }
+  .marquee-title {
+    font-size: 0.95rem;
+  }
+}

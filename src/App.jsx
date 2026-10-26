@@ -2,6 +2,7 @@ import React from 'react';
 import ScrollProgress from './components/ScrollProgress/ScrollProgress';
 import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
+import TechMarquee from './components/TechMarquee/TechMarquee';
 import About from './components/About/About';
 import Experience from './components/Experience/Experience';
 import Projects from './components/Projects/Projects';
@@ -26,6 +27,8 @@ function App() {
       {/* Main Content Sections */}
       <main>
         <Hero />
+        {/* Dual Auto-Sliding Marquee (Left & Right) */}
+        <TechMarquee />
         <About />
         <Experience />
         <Projects />
