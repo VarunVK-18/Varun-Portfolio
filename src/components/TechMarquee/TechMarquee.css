@@ -1,16 +1,15 @@
 .marquee-section {
   position: relative;
   overflow: hidden;
-  padding: 2.5rem 0 3.5rem 0;
+  padding: 1.5rem 0 3.5rem 0;
   background-color: var(--color-white);
-  border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
+  border: none; /* Removed the line in the up */
 }
 
 .marquee-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1.1rem;
   width: 100%;
 }
 
@@ -19,7 +18,7 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 12%;
+  width: 14%;
   z-index: 5;
   pointer-events: none;
 }
@@ -44,12 +43,12 @@
 .marquee-track {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: 1.1rem;
   width: max-content;
   will-change: transform;
 }
 
-/* Pause on hover just like Dribbble */
+/* Pause on hover */
 .marquee-row:hover .marquee-track {
   animation-play-state: paused;
 }
@@ -82,29 +81,32 @@
   }
 }
 
-/* Card Design using exact color palette */
+/* Perfectly Aligned Card Design with Fixed Dimensions */
 .marquee-card {
+  width: 255px;
+  height: 68px;
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 0.85rem 1.5rem;
+  gap: 0.9rem;
+  padding: 0 1.25rem;
   background-color: var(--color-tertiary);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   flex-shrink: 0;
+  box-sizing: border-box;
   cursor: default;
   transition: border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .marquee-card:hover {
   border-color: var(--color-primary);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
 }
 
 .marquee-icon-box {
-  width: 42px;
-  height: 42px;
+  width: 38px;
+  height: 38px;
   border-radius: var(--radius-sm);
   background-color: var(--color-primary);
   border: 1px solid var(--color-primary);
@@ -124,37 +126,50 @@
 .marquee-info {
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .marquee-title {
   font-family: var(--font-title);
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   font-weight: 700;
   color: var(--color-primary);
-  line-height: 1.2;
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .marquee-tag {
-  font-size: 0.76rem;
+  font-size: 0.72rem;
   color: var(--color-secondary);
   font-weight: 500;
-  letter-spacing: 0.02em;
-  margin-top: 0.2rem;
+  letter-spacing: 0.03em;
+  margin-top: 0.15rem;
   text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 @media (max-width: 768px) {
   .marquee-section {
-    padding: 1.75rem 0 2.5rem 0;
+    padding: 1rem 0 2.5rem 0;
   }
   .marquee-card {
-    padding: 0.7rem 1.15rem;
+    width: 220px;
+    height: 60px;
+    padding: 0 1rem;
+    gap: 0.75rem;
   }
   .marquee-icon-box {
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
   }
   .marquee-title {
-    font-size: 0.95rem;
+    font-size: 0.88rem;
+  }
+  .marquee-tag {
+    font-size: 0.68rem;
   }
 }

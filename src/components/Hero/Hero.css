@@ -177,8 +177,7 @@
   justify-content: space-between;
   gap: 2rem;
   flex-wrap: wrap;
-  padding-top: 2rem;
-  border-top: 1px solid var(--color-border);
+  padding-top: 1.5rem;
   background-color: var(--color-white);
   position: relative;
   z-index: 2;
