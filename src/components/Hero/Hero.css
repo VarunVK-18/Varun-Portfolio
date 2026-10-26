@@ -4,6 +4,7 @@
   align-items: center;
   padding: 8rem 0 5rem 0;
   position: relative;
+  background-color: var(--color-white);
 }
 
 .hero-container {
@@ -18,7 +19,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
-  background: var(--color-surface);
+  background: var(--color-tertiary);
   border: 1px solid var(--color-border);
   padding: 0.4rem 1rem;
   border-radius: var(--radius-full);
@@ -28,31 +29,30 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: var(--color-accent);
-  box-shadow: 0 0 10px var(--color-accent);
+  background-color: var(--color-primary);
   animation: pulseAnimation 2s infinite ease-in-out;
 }
 
 @keyframes pulseAnimation {
   0% {
     transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(var(--color-accent-rgb), 0.7);
+    box-shadow: 0 0 0 0 rgba(34, 34, 34, 0.4);
   }
   70% {
     transform: scale(1.15);
-    box-shadow: 0 0 0 8px rgba(var(--color-accent-rgb), 0);
+    box-shadow: 0 0 0 8px rgba(34, 34, 34, 0);
   }
   100% {
     transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(var(--color-accent-rgb), 0);
+    box-shadow: 0 0 0 0 rgba(34, 34, 34, 0);
   }
 }
 
 .badge-text {
   font-size: 0.82rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.04em;
-  color: var(--color-text-muted);
+  color: var(--color-primary);
 }
 
 /* Hero Content */
@@ -61,6 +61,7 @@
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.03em;
+  color: var(--color-primary);
 }
 
 .hero-name {
@@ -78,12 +79,12 @@
   margin-top: 1.25rem;
   max-width: 640px;
   font-size: clamp(1.05rem, 2vw, 1.25rem);
-  color: var(--color-text-muted);
+  color: var(--color-secondary);
   font-weight: 400;
   line-height: 1.6;
 }
 
-/* Action Buttons */
+/* Buttons and text buttons as Black */
 .hero-actions {
   display: flex;
   align-items: center;
@@ -96,18 +97,19 @@
   align-items: center;
   gap: 0.65rem;
   padding: 0.85rem 1.8rem;
-  background: var(--color-accent);
-  color: #0b0f17;
+  background: var(--color-primary);
+  color: var(--color-white);
   font-weight: 600;
   font-size: 0.95rem;
   border-radius: var(--radius-full);
-  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), opacity var(--transition-smooth);
+  border: 1px solid var(--color-primary);
+  transition: transform var(--transition-smooth), background-color var(--transition-smooth), box-shadow var(--transition-smooth);
 }
 
 .btn-cta-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 24px var(--color-accent-glow);
-  opacity: 0.95;
+  background: #000000;
+  box-shadow: 0 4px 18px rgba(34, 34, 34, 0.25);
 }
 
 .btn-cta-secondary {
@@ -115,18 +117,18 @@
   align-items: center;
   gap: 0.65rem;
   padding: 0.85rem 1.8rem;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  color: var(--color-text-main);
+  background: var(--color-white);
+  border: 1.5px solid var(--color-primary);
+  color: var(--color-primary);
   font-weight: 600;
   font-size: 0.95rem;
   border-radius: var(--radius-full);
-  transition: border-color var(--transition-smooth), transform var(--transition-smooth), color var(--transition-smooth);
+  transition: all var(--transition-smooth);
 }
 
 .btn-cta-secondary:hover {
-  border-color: var(--color-accent);
-  color: var(--color-accent);
+  background: var(--color-primary);
+  color: var(--color-white);
   transform: translateY(-2px);
 }
 
@@ -152,20 +154,21 @@
   width: 44px;
   height: 44px;
   border-radius: var(--radius-sm);
-  background: var(--color-surface);
+  background: var(--color-tertiary);
   border: 1px solid var(--color-border);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-text-muted);
-  transition: color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+  color: var(--color-primary);
+  transition: all var(--transition-fast);
 }
 
 .social-icon-btn:hover {
-  color: var(--color-accent);
-  border-color: var(--color-accent);
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-white);
   transform: translateY(-3px);
-  box-shadow: 0 4px 16px var(--color-accent-soft);
+  box-shadow: 0 4px 12px rgba(34, 34, 34, 0.15);
 }
 
 /* Stats */
@@ -185,11 +188,12 @@
   font-size: 1.8rem;
   font-weight: 700;
   line-height: 1.1;
+  color: var(--color-primary);
 }
 
 .stat-label {
   font-size: 0.8rem;
-  color: var(--color-text-subtle);
+  color: var(--color-secondary);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-top: 0.2rem;

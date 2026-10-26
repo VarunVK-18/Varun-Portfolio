@@ -28,23 +28,22 @@
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background: var(--color-bg);
-  border: 2px solid var(--color-accent);
-  box-shadow: 0 0 10px var(--color-accent);
+  background: var(--color-white);
+  border: 2px solid var(--color-primary);
   margin-top: 6px;
   z-index: 2;
-  transition: transform var(--transition-smooth);
+  transition: transform var(--transition-smooth), background-color var(--transition-smooth);
 }
 
 .timeline-item:hover .marker-dot {
   transform: scale(1.3);
-  background: var(--color-accent);
+  background: var(--color-primary);
 }
 
 .marker-line {
   flex: 1;
   width: 2px;
-  background: linear-gradient(180deg, var(--color-border) 0%, rgba(var(--color-accent-rgb), 0.2) 100%);
+  background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-border) 100%);
   margin-top: 8px;
 }
 
@@ -54,7 +53,7 @@
 
 /* Card */
 .timeline-card {
-  background: var(--color-surface);
+  background: var(--color-tertiary);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: 2rem;
@@ -62,7 +61,7 @@
 }
 
 .timeline-card:hover {
-  border-color: var(--color-border-hover);
+  border-color: var(--color-primary);
   transform: translateX(4px);
 }
 
@@ -78,11 +77,12 @@
 .role-title {
   font-size: 1.35rem;
   font-weight: 700;
+  color: var(--color-primary);
 }
 
 .company-name {
-  color: var(--color-accent);
-  font-weight: 500;
+  color: var(--color-primary);
+  font-weight: 600;
   font-size: 1rem;
   margin-top: 0.25rem;
 }
@@ -99,15 +99,15 @@
   align-items: center;
   gap: 0.4rem;
   font-size: 0.82rem;
-  color: var(--color-text-muted);
-  background: rgba(255, 255, 255, 0.03);
+  color: var(--color-secondary);
+  background: var(--color-white);
   border: 1px solid var(--color-border);
   padding: 0.3rem 0.75rem;
   border-radius: var(--radius-full);
 }
 
 .experience-desc {
-  color: var(--color-text-muted);
+  color: var(--color-secondary);
   font-size: 0.98rem;
   line-height: 1.65;
   margin-bottom: 1.25rem;
@@ -126,13 +126,13 @@
   display: flex;
   align-items: flex-start;
   gap: 0.5rem;
-  color: var(--color-text-muted);
+  color: var(--color-secondary);
   font-size: 0.92rem;
   line-height: 1.5;
 }
 
 .highlight-bullet {
-  color: var(--color-accent);
+  color: var(--color-primary);
   margin-top: 2px;
   flex-shrink: 0;
 }
@@ -148,9 +148,9 @@
 
 .tech-pill {
   font-size: 0.8rem;
-  color: var(--color-text-main);
-  background: rgba(var(--color-accent-rgb), 0.06);
-  border: 1px solid rgba(var(--color-accent-rgb), 0.15);
+  color: var(--color-primary);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
   padding: 0.25rem 0.65rem;
   border-radius: var(--radius-sm);
   font-weight: 500;
@@ -158,8 +158,9 @@
 }
 
 .tech-pill:hover {
-  border-color: var(--color-accent);
-  color: var(--color-accent);
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  color: var(--color-white);
 }
 
 @media (max-width: 640px) {

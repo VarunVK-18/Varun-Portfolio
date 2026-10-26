@@ -1,25 +1,36 @@
 /* ==========================================================================
    DESIGN TOKENS & RESET
-   - Strict 2-Color Minimalist Palette: Obsidian Dark (#0b0f17) + Electric Cyan (#00f2fe)
+   - Exact Color Palette:
+     * Primary:   #222222 (Deep Charcoal Black)
+     * Secondary: #7B7B7B (Neutral Gray)
+     * Tertiary:  #F8F8F8 (Light Surface / Card Off-White)
+     * White:     #FFFFFF (Pure White Background)
    - 2 Static Fonts: 'Space Grotesk' for Titles, 'Inter' for Descriptions
    ========================================================================== */
 
 :root {
-  /* Color 1: Deep Dark Obsidian System */
-  --color-bg: #0b0f17;
-  --color-surface: #111827;
-  --color-surface-hover: #162032;
-  --color-border: #1f2937;
-  --color-border-hover: rgba(0, 242, 254, 0.45);
-  --color-text-main: #f8fafc;
-  --color-text-muted: #94a3b8;
-  --color-text-subtle: #64748b;
+  /* Exact Color Palette */
+  --color-primary: #222222;
+  --color-secondary: #7B7B7B;
+  --color-tertiary: #F8F8F8;
+  --color-white: #FFFFFF;
 
-  /* Color 2: Electric Cyan Accent System */
-  --color-accent: #00f2fe;
-  --color-accent-rgb: 0, 242, 254;
-  --color-accent-soft: rgba(0, 242, 254, 0.1);
-  --color-accent-glow: rgba(0, 242, 254, 0.35);
+  /* Semantic UI Tokens */
+  --color-bg: #FFFFFF;
+  --color-surface: #F8F8F8;
+  --color-surface-hover: #F0F0F0;
+  --color-border: #E8E8E8;
+  --color-border-hover: #222222;
+  --color-border-dark: #222222;
+
+  --color-text-main: #222222;
+  --color-text-muted: #7B7B7B;
+  --color-text-subtle: #999999;
+
+  --color-accent: #222222;
+  --color-accent-rgb: 34, 34, 34;
+  --color-accent-soft: rgba(34, 34, 34, 0.06);
+  --color-accent-glow: rgba(34, 34, 34, 0.2);
 
   /* Fonts: Only 2 font styles */
   --font-title: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -43,7 +54,7 @@
 
 html {
   scroll-behavior: smooth;
-  color-scheme: dark;
+  color-scheme: light;
   background-color: var(--color-bg);
 }
 
@@ -59,16 +70,16 @@ body {
   position: relative;
 }
 
-/* Background ambient light mesh (minimal dual-color) */
+/* Subtle clean ambient top glow */
 body::before {
   content: '';
   position: fixed;
-  top: -20%;
+  top: -15%;
   left: 50%;
   transform: translateX(-50%);
   width: 900px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(var(--color-accent-rgb), 0.08) 0%, transparent 70%);
+  height: 450px;
+  background: radial-gradient(circle, rgba(123, 123, 123, 0.06) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
@@ -100,13 +111,13 @@ button {
 
 /* Text Gradient & Hover Gradient Animation */
 .text-gradient {
-  background: linear-gradient(135deg, #ffffff 40%, var(--color-accent) 100%);
+  background: linear-gradient(135deg, var(--color-primary) 30%, var(--color-secondary) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .hover-gradient-text {
-  background: linear-gradient(90deg, #f8fafc 0%, #f8fafc 45%, var(--color-accent) 100%);
+  background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary) 50%, var(--color-secondary) 100%);
   background-size: 220% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -116,7 +127,7 @@ button {
 
 .hover-gradient-text:hover {
   background-position: right center;
-  filter: drop-shadow(0 0 10px rgba(var(--color-accent-rgb), 0.5));
+  filter: drop-shadow(0 1px 4px rgba(34, 34, 34, 0.25));
 }
 
 /* Container Utility */
@@ -152,12 +163,12 @@ button {
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: var(--color-accent);
+  color: var(--color-primary);
   font-weight: 600;
   margin-bottom: 0.75rem;
   padding: 0.35rem 0.85rem;
-  background: var(--color-accent-soft);
-  border: 1px solid rgba(var(--color-accent-rgb), 0.2);
+  background: var(--color-tertiary);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-full);
 }
 
@@ -165,10 +176,11 @@ button {
   font-size: clamp(2rem, 4vw, 2.75rem);
   font-weight: 700;
   margin-bottom: 1rem;
+  color: var(--color-primary);
 }
 
 .section-subtitle {
-  color: var(--color-text-muted);
+  color: var(--color-secondary);
   font-size: 1.05rem;
   max-width: 600px;
 }
@@ -192,14 +204,14 @@ button {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-bg);
+  background: var(--color-white);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-border);
+  background: #D4D4D4;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-accent);
+  background: var(--color-primary);
 }
