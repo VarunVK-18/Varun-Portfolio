@@ -3,29 +3,22 @@
     <style>
       .hex-outer {
         fill: #F8F8F8;
-        stroke: #E2E2E2;
-        stroke-width: 1.5;
+        stroke: #EAEAEA;
+        stroke-width: 1;
       }
       .hex-inner {
         fill: #FFFFFF;
-        stroke: #EDEDED;
-        stroke-width: 1;
+        stroke: #F2F2F2;
+        stroke-width: 0.8;
       }
       .hex-bevel-top {
         fill: none;
         stroke: #7B7B7B;
-        stroke-width: 1.2;
-        stroke-opacity: 0.25;
-      }
-      .hex-bevel-side {
-        fill: none;
-        stroke: #222222;
-        stroke-width: 1.2;
-        stroke-opacity: 0.15;
+        stroke-width: 1;
+        stroke-opacity: 0.2;
       }
     </style>
   </defs>
-  <rect width="120" height="138.564" fill="#FFFFFF" />
   <polygon class="hex-outer" points="38.5,0 19.25,33.342 -19.25,33.342 -38.5,0 -19.25,-33.342 19.25,-33.342" />
   <polygon class="hex-inner" points="34,0 17,29.445 -17,29.445 -34,0 -17,-29.445 17,-29.445" />
   <polygon class="hex-outer" points="158.5,0 139.25,33.342 100.75,33.342 81.5,0 100.75,-33.342 139.25,-33.342" />

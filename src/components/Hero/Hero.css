@@ -8,32 +8,36 @@
   background-color: var(--color-white);
 }
 
-/* Pure CSS Honeycomb Pattern - No DOM elements */
+/* Honeycomb pattern: Starts strictly AFTER top bar and ends ABOVE GitHub & LinkedIn icons */
 .hero-section::before {
   content: '';
   position: absolute;
-  top: 0;
+  top: 5.25rem;   /* Starts after the top bar */
+  bottom: 12rem;  /* Ends above the social icons & metrics row */
   left: 0;
   right: 0;
-  bottom: 0;
   background-image: url('/honeycomb-pattern.svg');
   background-repeat: repeat;
   background-size: 120px 138.564px;
   background-position: center top;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.9;
-  mask-image: radial-gradient(
-    circle at 75% 35%,
-    rgba(0, 0, 0, 0.9) 0%,
-    rgba(0, 0, 0, 0.45) 55%,
-    transparent 85%
+  opacity: 0.25;
+
+  /* Smooth vertical fade at the boundary and soft fade behind text */
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.95) 7%,
+    rgba(0, 0, 0, 0.95) 88%,
+    transparent 100%
   );
-  -webkit-mask-image: radial-gradient(
-    circle at 75% 35%,
-    rgba(0, 0, 0, 0.9) 0%,
-    rgba(0, 0, 0, 0.45) 55%,
-    transparent 85%
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.95) 7%,
+    rgba(0, 0, 0, 0.95) 88%,
+    transparent 100%
   );
 }
 
@@ -165,7 +169,7 @@
   transform: translateY(-2px);
 }
 
-/* Bottom elements */
+/* Bottom elements: GitHub, LinkedIn icons & stats on pure white */
 .hero-bottom {
   margin-top: 2rem;
   display: flex;
@@ -175,6 +179,9 @@
   flex-wrap: wrap;
   padding-top: 2rem;
   border-top: 1px solid var(--color-border);
+  background-color: var(--color-white);
+  position: relative;
+  z-index: 2;
 }
 
 .hero-socials {
@@ -241,5 +248,8 @@
     gap: 1.5rem;
     width: 100%;
     justify-content: space-between;
+  }
+  .hero-section::before {
+    bottom: 16rem;
   }
 }
