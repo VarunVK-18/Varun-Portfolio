@@ -1,10 +1,14 @@
 import { useEffect } from 'react';
 
 /**
- * Custom hook to trigger scroll animations on elements with .reveal-fade-up
+ * Custom hook to ensure elements animate smoothly and are never left hidden
  */
 export function useScrollReveal() {
   useEffect(() => {
+    // Immediately mark visible to ensure no blank spaces ever occur
+    const elements = document.querySelectorAll('.reveal-fade-up');
+    elements.forEach((el) => el.classList.add('active'));
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -14,12 +18,10 @@ export function useScrollReveal() {
         });
       },
       {
-        threshold: 0.15,
-        rootMargin: '0px 0px -40px 0px',
+        threshold: 0.05,
       }
     );
 
-    const elements = document.querySelectorAll('.reveal-fade-up');
     elements.forEach((el) => observer.observe(el));
 
     return () => {
