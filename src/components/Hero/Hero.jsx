@@ -20,11 +20,6 @@ export default function Hero() {
     <section id="hero" className="hero-section">
       <div className="container hero-container">
         
-        {/* Availability Badge */}
-        <div className="hero-badge reveal-fade-up">
-          <span className="pulse-dot" />
-          <span className="badge-text">{personalInfo.status}</span>
-        </div>
 
         {/* Hero Title & Subtitle */}
         <div className="hero-content reveal-fade-up">
