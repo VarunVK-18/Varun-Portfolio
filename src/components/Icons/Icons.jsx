@@ -38,3 +38,23 @@ export function LinkedinIcon({ size = 18, className = "" }) {
     </svg>
   );
 }
+
+export function PlayStoreIcon({ size = 18, className = "" }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <polygon points="5 3 19 12 5 21 5 3" />
+      <line x1="19" y1="12" x2="5" y2="3" />
+      <line x1="5" y1="21" x2="19" y2="12" />
+    </svg>
+  );
+}

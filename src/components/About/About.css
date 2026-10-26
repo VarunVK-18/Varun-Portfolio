@@ -38,7 +38,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 1.5rem;
-  margin-top: 2rem;
+  margin-top: 1.75rem;
   padding-top: 1.5rem;
   border-top: 1px solid var(--color-border);
 }
@@ -53,6 +53,73 @@
 
 .detail-icon {
   color: var(--color-accent);
+}
+
+/* Education Box */
+.education-box {
+  margin-top: 1.75rem;
+  padding: 1.25rem 1.5rem;
+  background: rgba(var(--color-accent-rgb), 0.03);
+  border: 1px solid rgba(var(--color-accent-rgb), 0.18);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition-fast);
+}
+
+.education-box:hover {
+  border-color: var(--color-accent);
+}
+
+.education-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.edu-icon-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  background: var(--color-accent-soft);
+  color: var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.edu-degree {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+}
+
+.edu-school {
+  color: var(--color-text-muted);
+  font-size: 0.88rem;
+  margin-top: 0.2rem;
+}
+
+.edu-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 0.82rem;
+}
+
+.edu-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.edu-location {
+  color: var(--color-text-subtle);
 }
 
 .about-action {

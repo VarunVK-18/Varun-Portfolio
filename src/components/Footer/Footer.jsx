@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUp, Code2, Mail, FileText } from 'lucide-react';
+import { ArrowUp, Code2, Mail, FileText, Phone } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from '../Icons/Icons';
 import { personalInfo } from '../../data/portfolioData';
 import './Footer.css';
@@ -14,6 +14,7 @@ export default function Footer() {
       case 'github': return <GithubIcon size={17} />;
       case 'linkedin': return <LinkedinIcon size={17} />;
       case 'email': return <Mail size={17} />;
+      case 'phone': return <Phone size={17} />;
       case 'resume': return <FileText size={17} />;
       default: return null;
     }
@@ -32,7 +33,7 @@ export default function Footer() {
             <span className="footer-brand-name hover-gradient-text">{personalInfo.name}</span>
           </div>
           <p className="footer-text">
-            Minimalist, high-performance portfolio template crafted with React and modern CSS.
+            App Developer & Full-Stack Engineer specializing in Flutter, Dart, Node.js, MongoDB, and Angular.
           </p>
         </div>
 
@@ -43,7 +44,7 @@ export default function Footer() {
               <a
                 key={social.name}
                 href={social.url}
-                target="_blank"
+                target={social.url.startsWith('http') ? "_blank" : undefined}
                 rel="noreferrer"
                 className="footer-social-btn"
                 aria-label={social.name}

@@ -1,14 +1,15 @@
 import React from 'react';
-import { User, MapPin, Mail, FileText, CheckCircle2, ArrowUpRight } from 'lucide-react';
+import { User, MapPin, Mail, Phone, CheckCircle2, ArrowUpRight, GraduationCap, Award } from 'lucide-react';
 import { personalInfo } from '../../data/portfolioData';
 import './About.css';
 
 export default function About() {
   const highlights = [
-    "Frontend architecture with modular React & modern JavaScript",
-    "Performance tuning, accessibility, and zero layout shift",
-    "Clean code philosophy, DRY principles, and thorough testing",
-    "Collaborative mindset with strong cross-functional communication"
+    "Cross-platform app development with Flutter & Dart (State: Provider & Riverpod)",
+    "Backend & REST API engineering using Node.js, Express.js, and MongoDB",
+    "Authentication systems: Firebase Auth, Google Sign-In, and 2FA/TOTP security",
+    "Frontend development with Angular, TypeScript, HTML5, CSS3, and modern UI/UX",
+    "Production lifecycle experience publishing live applications to the Google Play Store"
   ];
 
   return (
@@ -22,10 +23,10 @@ export default function About() {
             <span>About Me</span>
           </div>
           <h2 className="section-title">
-            Passionate About Crafting <span className="hover-gradient-text">Clean Digital Solutions</span>
+            Passionate About Crafting <span className="hover-gradient-text">Robust Applications</span>
           </h2>
           <p className="section-subtitle">
-            A developer who values clarity, user-centric engineering, and minimalist aesthetics.
+            An IT graduate and App Developer dedicated to engineering performant mobile and web software.
           </p>
         </div>
 
@@ -34,7 +35,7 @@ export default function About() {
           
           {/* Main Story Box */}
           <div className="about-card main-story-card reveal-fade-up">
-            <h3 className="card-heading hover-gradient-text">Background & Approach</h3>
+            <h3 className="card-heading hover-gradient-text">Background & Experience</h3>
             <div className="about-bio">
               {personalInfo.bio.map((paragraph, idx) => (
                 <p key={idx} className="bio-paragraph">
@@ -50,14 +51,39 @@ export default function About() {
               </div>
               <div className="detail-item">
                 <Mail size={17} className="detail-icon" />
-                <span className="detail-text">{personalInfo.email}</span>
+                <a href={`mailto:${personalInfo.email}`} className="detail-text hover-gradient-text">{personalInfo.email}</a>
+              </div>
+              <div className="detail-item">
+                <Phone size={17} className="detail-icon" />
+                <a href={`tel:${personalInfo.phone}`} className="detail-text hover-gradient-text">{personalInfo.phone}</a>
               </div>
             </div>
 
+            {/* Education Card */}
+            {personalInfo.education && (
+              <div className="education-box">
+                <div className="education-header">
+                  <div className="edu-icon-badge">
+                    <GraduationCap size={18} />
+                  </div>
+                  <div>
+                    <h4 className="edu-degree">{personalInfo.education.degree}</h4>
+                    <p className="edu-school">{personalInfo.education.institution} &bull; {personalInfo.education.period}</p>
+                  </div>
+                </div>
+                <div className="edu-footer">
+                  <span className="edu-tag">
+                    <Award size={14} />
+                    <span>{personalInfo.education.grade}</span>
+                  </span>
+                  <span className="edu-location">{personalInfo.education.location}</span>
+                </div>
+              </div>
+            )}
+
             <div className="about-action">
-              <a href={personalInfo.resumeUrl} className="btn-resume">
-                <FileText size={16} />
-                <span>Download Resume</span>
+              <a href="#contact" className="btn-resume">
+                <span>Connect with Me</span>
                 <ArrowUpRight size={15} />
               </a>
             </div>
@@ -65,7 +91,7 @@ export default function About() {
 
           {/* Highlights / Principles Box */}
           <div className="about-card highlights-card reveal-fade-up">
-            <h3 className="card-heading hover-gradient-text">Engineering Principles</h3>
+            <h3 className="card-heading hover-gradient-text">Core Competencies</h3>
             <ul className="principles-list">
               {highlights.map((item, index) => (
                 <li key={index} className="principle-item">

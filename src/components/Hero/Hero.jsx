@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUpRight, Mail, FileText, ArrowDown } from 'lucide-react';
+import { ArrowUpRight, Mail, FileText, ArrowDown, Phone } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from '../Icons/Icons';
 import { personalInfo } from '../../data/portfolioData';
 import './Hero.css';
@@ -10,6 +10,7 @@ export default function Hero() {
       case 'github': return <GithubIcon size={18} />;
       case 'linkedin': return <LinkedinIcon size={18} />;
       case 'email': return <Mail size={18} />;
+      case 'phone': return <Phone size={18} />;
       case 'resume': return <FileText size={18} />;
       default: return <ArrowUpRight size={18} />;
     }
@@ -57,7 +58,7 @@ export default function Hero() {
               <a
                 key={social.name}
                 href={social.url}
-                target="_blank"
+                target={social.url.startsWith('http') ? "_blank" : undefined}
                 rel="noreferrer"
                 className="social-icon-btn"
                 aria-label={social.name}

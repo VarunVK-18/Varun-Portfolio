@@ -59,12 +59,30 @@
   margin-bottom: 1.5rem;
 }
 
+.counter-badge-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
 .project-counter {
   font-family: var(--font-title);
   font-size: 1.1rem;
   color: var(--color-accent);
   font-weight: 700;
   opacity: 0.8;
+}
+
+.project-type-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.2rem 0.65rem;
+  background: rgba(var(--color-accent-rgb), 0.1);
+  border: 1px solid rgba(var(--color-accent-rgb), 0.25);
+  border-radius: var(--radius-full);
+  color: var(--color-accent);
 }
 
 .project-links {
@@ -90,6 +108,11 @@
   color: var(--color-accent);
   border-color: var(--color-accent);
   transform: translateY(-2px);
+}
+
+.project-link-icon.playstore:hover {
+  color: var(--color-accent);
+  box-shadow: 0 0 12px var(--color-accent-soft);
 }
 
 .project-body {
@@ -142,6 +165,11 @@
 
 .project-action-link:hover {
   gap: 0.65rem;
+}
+
+.project-action-link.static-note {
+  color: var(--color-text-subtle);
+  cursor: default;
 }
 
 @media (max-width: 640px) {

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Layers, ExternalLink, ArrowUpRight } from 'lucide-react';
-import { GithubIcon } from '../Icons/Icons';
+import { Layers, ExternalLink, ArrowUpRight, Code2 } from 'lucide-react';
+import { GithubIcon, PlayStoreIcon } from '../Icons/Icons';
 import { projectsData } from '../../data/portfolioData';
 import './Projects.css';
 
@@ -27,7 +27,7 @@ export default function Projects() {
                 Featured <span className="hover-gradient-text">Projects</span>
               </h2>
               <p className="section-subtitle">
-                A selection of real-world applications, tools, and technical prototypes.
+                Real-world mobile applications published on the Google Play Store, AI agents, and web platforms.
               </p>
             </div>
 
@@ -51,71 +51,104 @@ export default function Projects() {
 
         {/* Projects Grid */}
         <div className="projects-grid">
-          {filteredProjects.map((project, index) => (
-            <div key={index} className="project-card reveal-fade-up">
-              
-              <div className="project-top-row">
-                <span className="project-counter">0{index + 1}</span>
-                <div className="project-links">
-                  {project.githubUrl && (
+          {filteredProjects.map((project, index) => {
+            const primaryLink = project.playStoreUrl || project.liveUrl || project.githubUrl;
+
+            return (
+              <div key={index} className="project-card reveal-fade-up">
+                
+                <div className="project-top-row">
+                  <div className="counter-badge-group">
+                    <span className="project-counter">0{index + 1}</span>
+                    {project.badge && (
+                      <span className="project-type-badge">{project.badge}</span>
+                    )}
+                  </div>
+
+                  <div className="project-links">
+                    {project.playStoreUrl && (
+                      <a
+                        href={project.playStoreUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="project-link-icon playstore"
+                        aria-label="View on Google Play Store"
+                        title="Google Play Store"
+                      >
+                        <PlayStoreIcon size={17} />
+                      </a>
+                    )}
+                    {project.githubUrl && (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="project-link-icon"
+                        aria-label="View Source Code on GitHub"
+                        title="Source Code"
+                      >
+                        <GithubIcon size={18} />
+                      </a>
+                    )}
+                    {project.liveUrl && !project.playStoreUrl && (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="project-link-icon"
+                        aria-label="View Live Project"
+                        title="Live Preview"
+                      >
+                        <ExternalLink size={18} />
+                      </a>
+                    )}
+                  </div>
+                </div>
+
+                <div className="project-body">
+                  <h3 className="project-title hover-gradient-text">
+                    {primaryLink ? (
+                      <a href={primaryLink} target="_blank" rel="noreferrer">
+                        {project.title}
+                      </a>
+                    ) : (
+                      <span>{project.title}</span>
+                    )}
+                  </h3>
+
+                  <p className="project-desc">{project.description}</p>
+                </div>
+
+                <div className="project-tags">
+                  {project.tags.map((tag, idx) => (
+                    <span key={idx} className="project-tag">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="project-footer">
+                  {primaryLink ? (
                     <a
-                      href={project.githubUrl}
+                      href={primaryLink}
                       target="_blank"
                       rel="noreferrer"
-                      className="project-link-icon"
-                      aria-label="View Source Code on GitHub"
-                      title="Source Code"
+                      className="project-action-link"
                     >
-                      <GithubIcon size={18} />
+                      <span>{project.playStoreUrl ? 'View on Play Store' : 'Explore Project'}</span>
+                      <ArrowUpRight size={15} />
                     </a>
-                  )}
-                  {project.liveUrl && (
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="project-link-icon"
-                      aria-label="View Live Project"
-                      title="Live Preview"
-                    >
-                      <ExternalLink size={18} />
-                    </a>
+                  ) : (
+                    <span className="project-action-link static-note">
+                      <Code2 size={15} />
+                      <span>Full-Stack Platform</span>
+                    </span>
                   )}
                 </div>
+
               </div>
-
-              <div className="project-body">
-                <h3 className="project-title hover-gradient-text">
-                  <a href={project.liveUrl || project.githubUrl} target="_blank" rel="noreferrer">
-                    {project.title}
-                  </a>
-                </h3>
-
-                <p className="project-desc">{project.description}</p>
-              </div>
-
-              <div className="project-tags">
-                {project.tags.map((tag, idx) => (
-                  <span key={idx} className="project-tag">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-
-              <div className="project-footer">
-                <a
-                  href={project.liveUrl || project.githubUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="project-action-link"
-                >
-                  <span>Explore Project</span>
-                  <ArrowUpRight size={15} />
-                </a>
-              </div>
-
-            </div>
-          ))}
+            );
+          })}
         </div>
 
       </div>

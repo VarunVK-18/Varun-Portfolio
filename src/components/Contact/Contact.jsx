@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, MapPin, Send, CheckCircle2, MessageSquare } from 'lucide-react';
+import { Mail, MapPin, Send, CheckCircle2, MessageSquare, Phone } from 'lucide-react';
 import { personalInfo } from '../../data/portfolioData';
 import './Contact.css';
 
@@ -42,7 +42,7 @@ export default function Contact() {
             Let's Build Something <span className="hover-gradient-text">Exceptional</span>
           </h2>
           <p className="section-subtitle">
-            Open for software engineering opportunities, contract projects, and architecture discussions.
+            Open for app development roles, software engineering positions, and project collaborations.
           </p>
         </div>
 
@@ -53,7 +53,7 @@ export default function Contact() {
           <div className="contact-info-card reveal-fade-up">
             <h3 className="info-card-title hover-gradient-text">Contact Information</h3>
             <p className="info-card-desc">
-              Feel free to reach out directly via email or drop a message through the form. I'll get back to you promptly.
+              Feel free to reach out directly via email, phone, or drop a message through the form. I'll get back to you promptly.
             </p>
 
             <div className="contact-methods">
@@ -66,6 +66,18 @@ export default function Contact() {
                   <div className="method-value hover-gradient-text">{personalInfo.email}</div>
                 </div>
               </a>
+
+              {personalInfo.phone && (
+                <a href={`tel:${personalInfo.phone}`} className="contact-method-item">
+                  <div className="method-icon-box">
+                    <Phone size={20} />
+                  </div>
+                  <div>
+                    <div className="method-label">Phone / WhatsApp</div>
+                    <div className="method-value hover-gradient-text">{personalInfo.phone}</div>
+                  </div>
+                </a>
+              )}
 
               <div className="contact-method-item">
                 <div className="method-icon-box">
@@ -82,7 +94,7 @@ export default function Contact() {
                   <MessageSquare size={20} />
                 </div>
                 <div>
-                  <div className="method-label">Current Status</div>
+                  <div className="method-label">Status</div>
                   <div className="method-value status-available">{personalInfo.status}</div>
                 </div>
               </div>
@@ -137,7 +149,7 @@ export default function Contact() {
                     type="text"
                     id="subject"
                     name="subject"
-                    placeholder="e.g. Project Discussion / Job Opportunity"
+                    placeholder="e.g. Flutter App Development / Job Opportunity"
                     value={formData.subject}
                     onChange={handleChange}
                     className="form-input"

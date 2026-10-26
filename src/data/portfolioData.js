@@ -1,109 +1,149 @@
 /**
- * Portfolio Data Template
- * Prepared to easily paste and map your resume details.
- * Contains placeholders strictly without emojis - uses Lucide icon keys instead!
+ * Portfolio Data
+ * Tailored from Varun R's Resume
+ * Strictly 0 emojis - Lucide / SVG icons only.
  */
 
 export const personalInfo = {
-  name: "Varun",
-  role: "Software Engineer & Full Stack Developer",
-  tagline: "Architecting scalable web applications with performance and clean code in mind.",
-  location: "Bangalore, India",
-  email: "varun.dev@example.com",
-  status: "Available for Opportunities",
-  resumeUrl: "#resume",
+  name: "Varun R",
+  role: "App Developer & Full-Stack Engineer",
+  tagline: "Specialized in Flutter, Dart, Node.js, MongoDB, and Angular. Building real-world mobile & web applications from concept to Google Play Store production.",
+  location: "Salem, Tamil Nadu, India",
+  email: "kumarvarun43255@gmail.com",
+  phone: "+91 8072286963",
+  status: "Open for Opportunities",
+  resumeUrl: "#contact",
   bio: [
-    "I am a passionate software engineer focused on building robust, high-performance web applications and intuitive digital experiences.",
-    "Specialized in React, modern JavaScript, and clean frontend architecture, I bridge the gap between design systems and reliable engineering.",
+    "Information Technology graduate (B.Tech, 2025) and App Developer with hands-on industry experience building scalable cross-platform mobile apps and web platforms using Flutter, Dart, Node.js, MongoDB, Angular, and TypeScript.",
+    "Experienced in end-to-end application engineering: designing intuitive modern UIs, integrating secure RESTful APIs, configuring Firebase and 2FA authentication, managing reactive state (Provider & Riverpod), and architecting real-world CRM and consumer applications published on the Google Play Store."
   ],
+  education: {
+    institution: "Mahendra College of Engineering",
+    degree: "Bachelor of Technology in Information Technology",
+    period: "2021 – 2025",
+    location: "Salem, Tamil Nadu, India",
+    grade: "CGPA: 7.29"
+  },
   socials: [
-    { name: "GitHub", url: "https://github.com", icon: "Github" },
-    { name: "LinkedIn", url: "https://linkedin.com", icon: "Linkedin" },
-    { name: "Email", url: "mailto:varun.dev@example.com", icon: "Mail" },
-    { name: "Resume", url: "#resume", icon: "FileText" },
+    { name: "GitHub", url: "https://github.com/VarunVK-18" },
+    { name: "LinkedIn", url: "https://linkedin.com/in/varunkumar018" },
+    { name: "Email", url: "mailto:kumarvarun43255@gmail.com" },
+    { name: "Phone", url: "tel:+918072286963" },
   ],
   stats: [
-    { value: "3+", label: "Years Experience" },
-    { value: "20+", label: "Projects Completed" },
-    { value: "100%", label: "Code Quality Focus" },
+    { value: "2", label: "Apps on Play Store" },
+    { value: "5+", label: "Real-World Projects" },
+    { value: "B.Tech", label: "IT Graduate (2025)" },
   ]
 };
 
 export const skillsData = [
   {
-    category: "Frontend Development",
-    skills: ["React.js", "JavaScript (ES6+)", "TypeScript", "HTML5 & CSS3", "State Management", "Responsive UI"],
+    category: "Mobile App Development",
+    skills: ["Flutter", "Dart", "Provider", "Riverpod", "Android Studio", "Local Notifications", "SharedPreferences", "UI/UX Implementation"],
   },
   {
-    category: "Backend & Systems",
-    skills: ["Node.js", "Express.js", "RESTful APIs", "PostgreSQL", "MongoDB", "Authentication"],
+    category: "Backend & APIs",
+    skills: ["Node.js", "Express.js", "REST APIs", "API Integration", "Google Gemini API", "Debugging", "Performance Tuning"],
   },
   {
-    category: "Architecture & Tools",
-    skills: ["Git & GitHub", "Vite / Webpack", "Docker", "CI/CD Pipelines", "Jest / Testing", "Performance Optimization"],
+    category: "Databases & Auth",
+    skills: ["MongoDB", "MongoDB Compass", "Firebase Realtime DB", "Supabase", "Firebase Authentication", "Google Sign-In", "2FA / TOTP"],
+  },
+  {
+    category: "Frontend & Web",
+    skills: ["Angular", "TypeScript", "JavaScript (ES6+)", "HTML5", "CSS3", "React", "Responsive Design"],
+  },
+  {
+    category: "Tools & Languages",
+    skills: ["Git & GitHub", "Visual Studio Code", "Eclipse", "Java", "C", "C++"],
   },
 ];
 
 export const experienceData = [
   {
-    role: "Full Stack Engineer",
-    company: "Tech Innovations Inc.",
-    period: "2023 - Present",
-    location: "Bangalore, India",
-    description: "Led development of core client dashboard, reducing load times by 40% and implementing scalable reusable component libraries.",
+    role: "App Developer Intern",
+    company: "Softrate",
+    period: "Apr 2026 – Present",
+    location: "India",
+    description: "Developing and maintaining production application modules using Flutter, Dart, Node.js, MongoDB, Angular, TypeScript, and Express.js across client projects.",
     highlights: [
-      "Engineered high-frequency real-time data feeds with optimized React re-renders",
-      "Collaborated with cross-functional teams to deliver enterprise features on schedule",
-      "Mentored junior engineers and instituted code review best practices",
+      "Developed and integrated REST APIs using Node.js and Express.js, connecting application frontends with MongoDB for structured data management",
+      "Contributed to MEAN-stack web application development using MongoDB, Express.js, Angular, and Node.js",
+      "Implemented application features involving authentication, client data management, structured forms, document handling, and database operations",
+      "Debugged application issues, resolved functional problems, and collaborated with the team throughout the implementation and testing lifecycle",
     ],
-    technologies: ["React", "Node.js", "TypeScript", "PostgreSQL", "TailwindCSS"],
+    technologies: ["Flutter", "Dart", "Node.js", "MongoDB", "Angular", "TypeScript", "Express.js", "REST APIs"],
   },
   {
-    role: "Frontend Developer",
-    company: "Digital Solutions Studio",
-    period: "2021 - 2023",
-    location: "Remote",
-    description: "Built performant web interfaces for client SaaS platforms and customer-facing web applications.",
+    role: "Flutter & Dart App Development Intern",
+    company: "GR Soft Tech",
+    period: "Oct 2024 – Nov 2024",
+    location: "India",
+    description: "Developed Flutter-based mobile application features using Dart and integrated Firebase Authentication for user login workflows.",
     highlights: [
-      "Built responsive design systems complying with strict accessibility standards",
-      "Migrated legacy monolithic frontend codebase to modular React architecture",
-      "Integrated analytics and automated end-to-end testing workflows",
+      "Integrated Firebase Authentication for streamlined user login and registration workflows",
+      "Implemented Provider state management to maintain reactive application state and improve UI responsiveness and code maintainability",
+      "Enhanced application navigation, screen layouts, and UI interactions to deliver a smoother user experience",
     ],
-    technologies: ["JavaScript", "React", "CSS Modules", "REST APIs", "Git"],
+    technologies: ["Flutter", "Dart", "Firebase Auth", "Provider", "UI/UX"],
+  },
+  {
+    role: "Web Development Intern",
+    company: "Alexza Tech",
+    period: "Apr 2023 – May 2023",
+    location: "India",
+    description: "Developed responsive web pages and clean, consistent UI components optimized across multiple viewport sizes.",
+    highlights: [
+      "Developed responsive web pages using HTML and CSS with layouts optimized for different screen sizes",
+      "Improved frontend structure, styling, and usability by implementing clean and consistent UI components",
+    ],
+    technologies: ["HTML5", "CSS3", "Responsive Layouts", "UI Design"],
   },
 ];
 
 export const projectsData = [
   {
-    title: "Enterprise SaaS Dashboard",
-    description: "A high-performance analytics interface featuring real-time telemetry, data filtering, and modular widget architecture.",
-    tags: ["React", "TypeScript", "Vite", "REST API"],
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com",
+    title: "Startup Doctor – Company Registration & Compliance CRM",
+    badge: "Play Store",
+    description: "A comprehensive CRM application for managing company registration, incorporation, compliance, taxation, and licensing-related services with structured forms, document handling, and client workflows.",
+    tags: ["Flutter", "Dart", "Node.js", "MongoDB", "REST APIs"],
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.wealthempires.startupdoctor",
+    liveUrl: "https://play.google.com/store/apps/details?id=com.wealthempires.startupdoctor",
     featured: true,
   },
   {
-    title: "Collaborative Workspace Platform",
-    description: "Clean team workspace application supporting document co-editing, project tracking boards, and role-based permissions.",
-    tags: ["React", "Node.js", "WebSockets", "PostgreSQL"],
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com",
+    title: "AuthSoft – Open-Source Authenticator Application",
+    badge: "Play Store",
+    description: "A security-focused two-factor authentication (2FA/TOTP) authenticator application for generating secure time-based authentication codes, integrated with Node.js backend services and MongoDB.",
+    tags: ["Flutter", "Dart", "2FA / TOTP", "Node.js", "MongoDB"],
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.softrate.authsoft",
+    liveUrl: "https://play.google.com/store/apps/details?id=com.softrate.authsoft",
     featured: true,
   },
   {
-    title: "Developer Toolkit & CLI Companion",
-    description: "An intuitive developer utility for inspecting network traffic, generating mockup payloads, and optimizing web bundles.",
-    tags: ["JavaScript", "HTML5", "CSS3", "Node.js"],
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com",
-    featured: false,
+    title: "Friendi_AI – AI Companion Chatbot Application",
+    badge: "AI Mobile App",
+    description: "AI-powered chatbot application with Firebase Email/Password and Google Sign-In, integrated with Google Gemini API for mathematical problem solving, coding assistance, dark mode UI, and local chat history.",
+    tags: ["Flutter", "Dart", "Firebase", "Google Gemini API"],
+    githubUrl: "https://github.com/VarunVK-18/Friendi_AI",
+    liveUrl: "https://github.com/VarunVK-18/Friendi_AI",
+    featured: true,
   },
   {
-    title: "Minimalist E-Commerce Experience",
-    description: "Ultra-fast headless commerce storefront with dynamic cart state, instantaneous checkout flow, and zero layout shift.",
-    tags: ["React", "CSS Architecture", "Stripe API"],
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com",
+    title: "Mozhibu – Book Writing & Reading Web Application",
+    badge: "Web Platform",
+    description: "A full-featured web application for creating, publishing, reading, and managing books and written content. Built with Angular frontend, Node.js/Express backend, and MongoDB storage.",
+    tags: ["Angular", "TypeScript", "Node.js", "Express.js", "MongoDB"],
+    featured: true,
+  },
+  {
+    title: "StreakUp – Habit & Attendance Tracker",
+    badge: "Mobile App",
+    description: "Offline-first habit and attendance tracking application with Riverpod reactive state management, SharedPreferences local persistence, and local notification reminders.",
+    tags: ["Flutter", "Dart", "Riverpod", "SharedPreferences", "Local Notifications"],
+    githubUrl: "https://github.com/VarunVK-18/StreakUP_App",
+    liveUrl: "https://github.com/VarunVK-18/StreakUP_App",
     featured: false,
   },
 ];
