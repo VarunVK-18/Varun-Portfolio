@@ -1,102 +1,51 @@
 .hero-section {
+  background-color: var(--color-white);
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding: 8rem 0 5rem 0;
+  padding: 5.5rem 0 2rem 0;
   position: relative;
   overflow: hidden;
-  background-color: var(--color-white);
-}
-
-/* Honeycomb pattern: Starts strictly AFTER top bar and ends ABOVE GitHub & LinkedIn icons */
-.hero-section::before {
-  content: '';
-  position: absolute;
-  top: 5.25rem;   /* Starts after the top bar */
-  bottom: 12rem;  /* Ends above the social icons & metrics row */
-  left: 0;
-  right: 0;
-  background-image: url('/honeycomb-pattern.svg');
-  background-repeat: repeat;
-  background-size: 120px 138.564px;
-  background-position: center top;
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.25;
-
-  /* Smooth vertical fade at the boundary and soft fade behind text */
-  mask-image: linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(0, 0, 0, 0.95) 7%,
-    rgba(0, 0, 0, 0.95) 88%,
-    transparent 100%
-  );
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(0, 0, 0, 0.95) 7%,
-    rgba(0, 0, 0, 0.95) 88%,
-    transparent 100%
-  );
 }
 
 .hero-container {
   display: flex;
   flex-direction: column;
-  gap: 2.25rem;
+  gap: 1.5rem;
   position: relative;
   z-index: 1;
 }
 
-/* Status Badge */
-.hero-badge {
-  align-self: flex-start;
-  display: inline-flex;
+/* 2-Column Layout: Content on Left, Tech Sphere on Right */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
   align-items: center;
-  gap: 0.65rem;
-  background: var(--color-tertiary);
-  border: 1px solid var(--color-border);
-  padding: 0.4rem 1rem;
-  border-radius: var(--radius-full);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  gap: 2.5rem;
+  width: 100%;
 }
 
-.pulse-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: var(--color-primary);
-  animation: pulseAnimation 2s infinite ease-in-out;
+.hero-left-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  max-width: 650px;
 }
 
-@keyframes pulseAnimation {
-  0% {
-    transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(34, 34, 34, 0.4);
-  }
-  70% {
-    transform: scale(1.15);
-    box-shadow: 0 0 0 8px rgba(34, 34, 34, 0);
-  }
-  100% {
-    transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(34, 34, 34, 0);
-  }
+.hero-right-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  min-height: 420px;
 }
 
-.badge-text {
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  color: var(--color-primary);
-}
 
-/* Hero Content */
 .hero-title {
-  font-size: clamp(2.5rem, 6.5vw, 4.5rem);
+  font-size: clamp(2.2rem, 5.5vw, 4.1rem);
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 1.12;
   letter-spacing: -0.03em;
   color: var(--color-primary);
 }
@@ -105,23 +54,25 @@
   cursor: default;
 }
 
+
 .hero-role {
-  font-size: clamp(1.8rem, 4.5vw, 3.25rem);
+  font-size: clamp(1.5rem, 3.8vw, 2.8rem);
   display: inline-block;
-  margin-top: 0.5rem;
+  margin-top: 0.54rem;
   font-weight: 600;
 }
 
+
 .hero-tagline {
-  margin-top: 1.25rem;
-  max-width: 640px;
-  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  margin-top: 1.2rem;
+  max-width: 560px;
+  font-size: clamp(1.02rem, 1.6vw, 1.15rem);
   color: var(--color-secondary);
   font-weight: 400;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
-/* Buttons and text buttons as Black */
+
 .hero-actions {
   display: flex;
   align-items: center;
@@ -142,8 +93,7 @@
   border: 1px solid var(--color-primary);
   transition: transform var(--transition-smooth), background-color var(--transition-smooth), box-shadow var(--transition-smooth);
 }
-
-.btn-cta-primary:hover {
+	.btn-cta-primary:hover {
   transform: translateY(-2px);
   background: #000000;
   box-shadow: 0 4px 18px rgba(34, 34, 34, 0.25);
@@ -162,23 +112,24 @@
   border-radius: var(--radius-full);
   transition: all var(--transition-smooth);
 }
-
-.btn-cta-secondary:hover {
+	.btn-cta-secondary:hover {
   background: var(--color-primary);
   color: var(--color-white);
   transform: translateY(-2px);
 }
 
-/* Bottom elements: GitHub, LinkedIn icons & stats on pure white */
+/* Bottom elements: GitHub, LinkedIn icons & stats */
 .hero-bottom {
-  margin-top: 2rem;
+  margin-top: 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
   flex-wrap: wrap;
-  padding-top: 1.5rem;
-  background-color: var(--color-white);
+  padding-top: 1.25rem;
+  padding-bottom: 1.5rem;
+  background: transparent;
+  border-top: 1px solid rgba(34, 34, 34, 0.08);
   position: relative;
   z-index: 2;
 }
@@ -230,6 +181,7 @@
   color: var(--color-primary);
 }
 
+
 .stat-label {
   font-size: 0.8rem;
   color: var(--color-secondary);
@@ -238,17 +190,32 @@
   margin-top: 0.2rem;
 }
 
+
+@media (max-width: 992px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+  .hero-left-col {
+    max-width: 100%;
+  }
+  .hero-right-col {
+    min-height: 360px;
+  }
+}
+
 @media (max-width: 640px) {
+  .hero-section {
+    padding: 6bem 0 3rem 0;
+  }
   .hero-bottom {
     flex-direction: column;
     align-items: flex-start;
+    gap: 1.5rem;
   }
   .hero-stats-strip {
     gap: 1.5rem;
     width: 100%;
     justify-content: space-between;
-  }
-  .hero-section::before {
-    bottom: 16rem;
   }
 }

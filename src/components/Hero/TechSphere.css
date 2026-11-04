@@ -1,0 +1,250 @@
+/* Tech Sphere Container */
+.tech-sphere-wrapper {
+  position: relative;
+  width: 420px;
+  height: 420px;
+  max-width: 100%;
+  margin: 0 auto;
+  pointer-events: auto;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ambient Glow */
+.tech-sphere-glow {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(2, 86, 155, 0.06) 0%, rgba(97, 218, 251, 0.02) 50%, transparent 70%);
+  pointer-events: none;
+  animation: glowPulse 5s ease-in-out infinite alternate;
+}
+
+/* Orbit Rings */
+.tech-orbit {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px dashed rgba(34, 34, 34, 0.09);
+  pointer-events: none;
+}
+
+.orbit-large {
+  width: 410px;
+  height: 410px;
+  animation: orbitSpin 65s linear infinite;
+}
+
+.orbit-medium {
+  width: 290px;
+  height: 290px;
+  animation: orbitSpinReverse 48s linear infinite;
+}
+
+.orbit-small {
+  width: 180px;
+  height: 180px;
+  border-style: solid;
+  border-color: rgba(34, 34, 34, 0.06);
+}
+
+/* Center Core Badge */
+.tech-center-badge {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1.5px solid rgba(34, 34, 34, 0.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  z-index: 5;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.tech-center-badge:hover {
+  transform: scale(1.08);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.09);
+}
+
+.tech-center-code {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #111111;
+  letter-spacing: -0.04em;
+}
+
+.tech-center-title {
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  color: #7b7b7b;
+  margin-top: 2px;
+}
+
+/* Logos Container Anchored at Exact Center */
+.tech-logos-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  z-index: 6;
+}
+
+/* Positioner wrapper that animates directly from (0, 0) to fan-out position */
+.logo-positioner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--node-size);
+  height: var(--node-size);
+  margin-top: calc(0px - (var(--node-size) / 2));
+  margin-left: calc(0px - (var(--node-size) / 2));
+  pointer-events: auto;
+}
+
+/* Initial Centered State */
+.is-initial .logo-positioner {
+  transform: translate(0, 0) scale(0.1);
+  opacity: 0;
+}
+
+/* Smooth Circular Radial Bloom from Center */
+.is-shuffled .logo-positioner {
+  animation: smoothCircleFanOut 0.95s cubic-bezier(0.2, 0.9, 0.3, 1) forwards;
+  animation-delay: var(--delay);
+}
+
+@keyframes smoothCircleFanOut {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.2);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translate(var(--target-x), var(--target-y)) scale(1);
+  }
+}
+/* Floating Card Styling */
+.tech-floating-card {
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.07);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 9px;
+  backdrop-filter: blur(8px);
+  transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.35s ease;
+}
+
+.is-shuffled .logo-positioner:nth-child(1) .tech-floating-card { animation: floatNodeA 4.2s ease-in-out infinite alternate 1.5s; }
+.is-shuffled .logo-positioner:nth-child(2) .tech-floating-card { animation: floatNodeB 5s ease-in-out infinite alternate 1.5s; }
+.is-shuffled .logo-positioner:nth-child(3) .tech-floating-card { animation: floatNodeC 4.6s ease-in-out infinite alternate 1.5s; }
+.is-shuffled .logo-positioner:nth-child(4) .tech-floating-card { animation: floatNodeA 5.4s ease-in-out infinite alternate 1.5s; }
+.is-shuffled .logo-positioner:nth-child(5) .tech-floating-card { animation: floatNodeB 4.8s ease-in-out infinite alternate 1.5s; }
+.is-shuffled .logo-positioner:nth-child(6) .tech-floating-card { animation: floatNodeC 5.2s ease-in-out infinite alternate 1.5s; }
+.is-shuffled .logo-positioner:nth-child(7) .tech-floating-card { animation: floatNodeA 4.5s ease-in-out infinite alternate 1.5s; }
+
+.tech-floating-card:hover {
+  transform: scale(1.18) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
+  z-index: 10;
+}
+
+.tech-card-icon {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tech-card-label {
+  position: absolute;
+  bottom: -24px;
+  background: #111111;
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(6px);
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.tech-floating-card:hover .tech-card-label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Idle Floats */
+@keyframes floatNodeA {
+  0% { transform: translateY(0px) rotate(0deg); }
+  100% { transform: translateY(-10px) rotate(1.5deg); }
+}
+
+@keyframes floatNodeB {
+  0% { transform: translateY(0px) rotate(0deg); }
+  100% { transform: translateY(12px) rotate(-1.5deg); }
+}
+
+@keyframes floatNodeC {
+  0% { transform: translateY(0px) rotate(0deg); }
+  100% { transform: translateY(-8px) rotate(-1deg); }
+}
+
+@keyframes glowPulse {
+  0% { transform: scale(0.95); opacity: 0.6; }
+  100% { transform: scale(1.15); opacity: 1; }
+}
+
+@keyframes orbitSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes orbitSpinReverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .tech-sphere-wrapper { width: 380px; height: 380px; }
+  .orbit-large { width: 370px; height: 370px; }
+  .orbit-medium { width: 260px; height: 260px; }
+  .orbit-small { width: 160px; height: 160px; }
+}
+
+@media (max-width: 992px) {
+  .tech-sphere-wrapper { margin: 1rem auto 0 auto; width: 360px; height: 360px; }
+  .orbit-large { width: 340px; height: 340px; }
+  .orbit-medium { width: 240px; height: 240px; }
+  .orbit-small { width: 150px; height: 150px; }
+}
+
+@media (max-width: 640px) {
+  .tech-sphere-wrapper { width: 300px; height: 300px; margin: 1.5rem auto 0 auto; }
+  .orbit-large { width: 280px; height: 280px; }
+  .orbit-medium { width: 200px; height: 200px; }
+  .orbit-small { width: 130px; height: 130px; }
+}

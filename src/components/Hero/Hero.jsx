@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowUpRight, Mail, FileText, ArrowDown, Phone } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from '../Icons/Icons';
 import { personalInfo } from '../../data/portfolioData';
+import TechSphere from './TechSphere';
 import './Hero.css';
 
 export default function Hero() {
@@ -20,31 +21,40 @@ export default function Hero() {
     <section id="hero" className="hero-section">
       <div className="container hero-container">
         
+        <div className="hero-grid">
+          {/* Left Column: Content & CTA */}
+          <div className="hero-left-col">
+            <div className="hero-content reveal-fade-up">
+              <h1 className="hero-title">
+                Hi, I'm <span className="hover-gradient-text hero-name">{personalInfo.name}</span>
+                <br />
+                <span className="hero-role text-gradient">{personalInfo.role}</span>
+              </h1>
 
-        {/* Hero Title & Subtitle */}
-        <div className="hero-content reveal-fade-up">
-          <h1 className="hero-title">
-            Hi, I'm <span className="hover-gradient-text hero-name">{personalInfo.name}</span>
-            <br />
-            <span className="hero-role text-gradient">{personalInfo.role}</span>
-          </h1>
+              <p className="hero-tagline">
+                {personalInfo.tagline}
+              </p>
+            </div>
 
-          <p className="hero-tagline">
-            {personalInfo.tagline}
-          </p>
+            {/* Action CTAs */}
+            <div className="hero-actions reveal-fade-up">
+              <a href="#projects" className="btn-cta-primary">
+                <span>Explore Projects</span>
+                <ArrowDown size={17} />
+              </a>
+              <a href="#contact" className="btn-cta-secondary">
+                <span>Contact Me</span>
+                <ArrowUpRight size={17} />
+              </a>
+            </div>
+          </div>
+
+          {/* Right Column: Interactive Tech Sphere */}
+          <div className="hero-right-col reveal-fade-up">
+            <TechSphere />
+          </div>
         </div>
 
-        {/* Action CTAs */}
-        <div className="hero-actions reveal-fade-up">
-          <a href="#projects" className="btn-cta-primary">
-            <span>Explore Projects</span>
-            <ArrowDown size={17} />
-          </a>
-          <a href="#contact" className="btn-cta-secondary">
-            <span>Contact Me</span>
-            <ArrowUpRight size={17} />
-          </a>
-        </div>
 
         {/* Social Icons & Metrics Strip */}
         <div className="hero-bottom reveal-fade-up">
@@ -64,7 +74,6 @@ export default function Hero() {
             ))}
           </div>
 
-          {/* Quick Metrics Strip */}
           <div className="hero-stats-strip">
             {personalInfo.stats.map((stat, idx) => (
               <div key={idx} className="stat-item">
