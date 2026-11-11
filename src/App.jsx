@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Loader from './components/Loader/Loader';
 import ScrollProgress from './components/ScrollProgress/ScrollProgress';
 import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
@@ -13,32 +14,39 @@ import { useScrollReveal } from './hooks/useScrollReveal';
 import './App.css';
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
   // Activate scroll-triggered fade animations
   useScrollReveal();
 
   return (
-    <div className="portfolio-app">
-      {/* Top Reading Progress Bar */}
-      <ScrollProgress />
+    <>
+      {/* Multicolor Morphing Blob Loader — 3 second intro */}
+      {isLoading && <Loader onFinish={() => setIsLoading(false)} />}
 
-      {/* Sticky Blur Navbar */}
-      <Navbar />
+      <div className="portfolio-app">
+        {/* Top Reading Progress Bar */}
+        <ScrollProgress />
 
-      {/* Main Content Sections */}
-      <main>
-        <Hero />
-        {/* Dual Auto-Sliding Marquee (Left & Right) */}
-        <TechMarquee />
-        <About />
-        <Experience />
-        <Projects />
-        <Skills />
-        <Contact />
-      </main>
+        {/* Sticky Blur Navbar */}
+        <Navbar />
 
-      {/* Footer */}
-      <Footer />
-    </div>
+        {/* Main Content Sections */}
+        <main>
+          <Hero />
+          {/* Dual Auto-Sliding Marquee (Left & Right) */}
+          <TechMarquee />
+          <About />
+          <Experience />
+          <Projects />
+          <Skills />
+          <Contact />
+        </main>
+
+        {/* Footer */}
+        <Footer />
+      </div>
+    </>
   );
 }
 

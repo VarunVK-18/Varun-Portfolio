@@ -1,0 +1,328 @@
+/* ========================================================
+   MULTICOLOR GLOWING RING LOADER
+   Inspired by circular arc loading animations
+   White background variant
+======================================================== */
+
+.loader-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 1;
+  visibility: visible;
+}
+
+.loader-overlay.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Ring scene container */
+.loader-ring-scene {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ambient glow behind the rings - softened & lowered */
+.loader-ambient-glow {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(11, 102, 35, 0.05) 0%,
+    rgba(0, 0, 0, 0.02) 40%,
+    transparent 70%
+  );
+  filter: blur(20px);
+  animation: ambientPulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes ambientPulse {
+  0% { transform: scale(0.95); opacity: 0.3; }
+  100% { transform: scale(1.05); opacity: 0.6; }
+}
+
+/* SVG ring container */
+.loader-svg {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  animation: ringRotateMain 2.4s linear infinite;
+}
+
+.loader-svg-secondary {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  animation: ringRotateSecondary 3.2s linear infinite reverse;
+}
+
+.loader-svg-tertiary {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  animation: ringRotateTertiary 4s linear infinite;
+  opacity: 0.7;
+}
+
+/* Ring rotation keyframes */
+@keyframes ringRotateMain {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes ringRotateSecondary {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes ringRotateTertiary {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Arc stroke animation — dash offset cycling */
+.ring-arc {
+  fill: none;
+  stroke-linecap: round;
+  animation: dashPulse 2.4s ease-in-out infinite;
+}
+
+.ring-arc-main {
+  stroke-width: 3.5;
+  stroke-dasharray: 180 300;
+  stroke-dashoffset: 0;
+  filter: drop-shadow(0 0 2px rgba(11, 102, 35, 0.2));
+  animation: dashPulseMain 2.4s ease-in-out infinite;
+}
+
+.ring-arc-secondary {
+  stroke-width: 2.5;
+  stroke-dasharray: 120 260;
+  stroke-dashoffset: -40;
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.12));
+  animation: dashPulseSecondary 3.2s ease-in-out infinite;
+}
+
+.ring-arc-tertiary {
+  stroke-width: 2;
+  stroke-dasharray: 80 240;
+  stroke-dashoffset: -20;
+  filter: drop-shadow(0 0 2px rgba(11, 102, 35, 0.15));
+  animation: dashPulseTertiary 4s ease-in-out infinite;
+}
+
+@keyframes dashPulseMain {
+  0% {
+    stroke-dasharray: 40 300;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 200 300;
+    stroke-dashoffset: -60;
+  }
+  100% {
+    stroke-dasharray: 40 300;
+    stroke-dashoffset: -280;
+  }
+}
+
+@keyframes dashPulseSecondary {
+  0% {
+    stroke-dasharray: 30 260;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 150 260;
+    stroke-dashoffset: -50;
+  }
+  100% {
+    stroke-dasharray: 30 260;
+    stroke-dashoffset: -230;
+  }
+}
+
+@keyframes dashPulseTertiary {
+  0% {
+    stroke-dasharray: 20 240;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 100 240;
+    stroke-dashoffset: -30;
+  }
+  100% {
+    stroke-dasharray: 20 240;
+    stroke-dashoffset: -200;
+  }
+}
+
+/* Tiny orbiting dot particles */
+.loader-particle {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  filter: blur(0.5px);
+}
+
+.particle-1 {
+  background: #0B6623;
+  box-shadow: 0 0 4px rgba(11, 102, 35, 0.4);
+  animation: orbitParticle1 2.4s linear infinite;
+}
+
+.particle-2 {
+  background: #000000;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+  animation: orbitParticle2 3.2s linear infinite reverse;
+  width: 4px;
+  height: 4px;
+}
+
+.particle-3 {
+  background: #0B6623;
+  box-shadow: 0 0 3px rgba(11, 102, 35, 0.35);
+  animation: orbitParticle3 4s linear infinite;
+  width: 3px;
+  height: 3px;
+}
+
+@keyframes orbitParticle1 {
+  from {
+    transform: rotate(0deg) translateX(90px) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(90px) rotate(-360deg);
+  }
+}
+
+@keyframes orbitParticle2 {
+  from {
+    transform: rotate(0deg) translateX(75px) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(75px) rotate(-360deg);
+  }
+}
+
+@keyframes orbitParticle3 {
+  from {
+    transform: rotate(0deg) translateX(60px) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(60px) rotate(-360deg);
+  }
+}
+
+/* Center Percentage Counter */
+.loader-percent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  font-family: var(--font-title, 'Space Grotesk', -apple-system, sans-serif);
+  color: var(--color-primary, #222222);
+  user-select: none;
+  pointer-events: none;
+}
+
+.loader-percent-number {
+  font-size: 2.1rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, #111111 20%, #444444 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-variant-numeric: tabular-nums;
+  display: inline-block;
+  min-width: 2ch;
+  text-align: right;
+}
+
+.loader-percent-sign {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #7b7b7b;
+  margin-left: 2px;
+}
+
+/* Loading text */
+.loader-text {
+  margin-top: 2.5rem;
+  font-family: var(--font-description, 'Inter', sans-serif);
+  font-size: 0.92rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: #b0b0b0;
+  animation: textFade 2s ease-in-out infinite;
+}
+
+@keyframes textFade {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 1; }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .loader-ring-scene {
+    width: 160px;
+    height: 160px;
+  }
+  .loader-svg {
+    width: 145px;
+    height: 145px;
+  }
+  .loader-svg-secondary {
+    width: 120px;
+    height: 120px;
+  }
+  .loader-svg-tertiary {
+    width: 96px;
+    height: 96px;
+  }
+  .loader-ambient-glow {
+    width: 170px;
+    height: 170px;
+  }
+  @keyframes orbitParticle1 {
+    from { transform: rotate(0deg) translateX(72px) rotate(0deg); }
+    to { transform: rotate(360deg) translateX(72px) rotate(-360deg); }
+  }
+  @keyframes orbitParticle2 {
+    from { transform: rotate(0deg) translateX(60px) rotate(0deg); }
+    to { transform: rotate(360deg) translateX(60px) rotate(-360deg); }
+  }
+  @keyframes orbitParticle3 {
+    from { transform: rotate(0deg) translateX(48px) rotate(0deg); }
+    to { transform: rotate(360deg) translateX(48px) rotate(-360deg); }
+  }
+  .loader-text {
+    font-size: 0.82rem;
+    margin-top: 2rem;
+  }
+  .loader-percent-number {
+    font-size: 1.75rem;
+  }
+  .loader-percent-sign {
+    font-size: 0.9rem;
+  }
+}

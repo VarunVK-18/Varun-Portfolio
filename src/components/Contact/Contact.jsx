@@ -50,7 +50,7 @@ export default function Contact() {
         <div className="contact-grid">
           
           {/* Info Card */}
-          <div className="contact-info-card reveal-fade-up">
+          <div className="contact-info-card reveal-slide-left">
             <h3 className="info-card-title hover-gradient-text">Contact Information</h3>
             <p className="info-card-desc">
               Feel free to reach out directly via email, phone, or drop a message through the form. I'll get back to you promptly.
@@ -89,20 +89,19 @@ export default function Contact() {
                 </div>
               </div>
 
-              <div className="contact-method-item">
-                <div className="method-icon-box">
-                  <MessageSquare size={20} />
-                </div>
-                <div>
-                  <div className="method-label">Status</div>
-                  <div className="method-value status-available">{personalInfo.status}</div>
+              {/* Status Box */}
+              <div className="contact-status-card">
+                <div className="status-indicator-dot" />
+                <div className="status-content">
+                  <div className="status-title">{personalInfo.status}</div>
+                  <div className="status-desc">Available for full-time roles & projects</div>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Form Card */}
-          <div className="contact-form-card reveal-fade-up">
+          <div className="contact-form-card reveal-slide-right">
             {submitted ? (
               <div className="form-success-box">
                 <CheckCircle2 size={44} className="success-icon" />
@@ -121,7 +120,7 @@ export default function Contact() {
                       id="name"
                       name="name"
                       required
-                      placeholder="e.g. John Doe"
+                      placeholder="Enter your name"
                       value={formData.name}
                       onChange={handleChange}
                       className="form-input"
@@ -135,7 +134,7 @@ export default function Contact() {
                       id="email"
                       name="email"
                       required
-                      placeholder="e.g. john@example.com"
+                      placeholder="name@example.com"
                       value={formData.email}
                       onChange={handleChange}
                       className="form-input"

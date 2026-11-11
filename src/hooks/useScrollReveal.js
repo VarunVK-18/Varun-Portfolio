@@ -1,14 +1,16 @@
 import { useEffect } from 'react';
 
 /**
- * Custom hook to ensure elements animate smoothly and are never left hidden
+ * Custom hook to trigger fluid scroll-reveal animations (fade-up, slide-left, slide-right)
  */
 export function useScrollReveal() {
   useEffect(() => {
-    // Immediately mark visible to ensure no blank spaces ever occur
-    const elements = document.querySelectorAll('.reveal-fade-up');
-    elements.forEach((el) => el.classList.add('active'));
+    const selector = '.reveal-fade-up, .reveal-slide-left, .reveal-slide-right';
+    const elements = document.querySelectorAll(selector);
 
+    if (!elements.length) return;
+
+    // Use IntersectionObserver with a responsive rootMargin to detect scrolling early
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -18,11 +20,19 @@ export function useScrollReveal() {
         });
       },
       {
-        threshold: 0.05,
+        threshold: 0.12,
+        rootMargin: '0px 0px -40px 0px',
       }
     );
 
-    elements.forEach((el) => observer.observe(el));
+    elements.forEach((el) => {
+      // Check if already in viewport on initial load
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.95 && rect.bottom > 0) {
+        el.classList.add('active');
+      }
+      observer.observe(el);
+    });
 
     return () => {
       elements.forEach((el) => observer.unobserve(el));

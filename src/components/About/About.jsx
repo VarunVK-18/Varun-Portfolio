@@ -34,7 +34,7 @@ export default function About() {
         <div className="about-grid">
           
           {/* Main Story Box */}
-          <div className="about-card main-story-card reveal-fade-up">
+          <div className="about-card main-story-card reveal-slide-left">
             <h3 className="card-heading hover-gradient-text">Background & Experience</h3>
             <div className="about-bio">
               {personalInfo.bio.map((paragraph, idx) => (
@@ -42,6 +42,22 @@ export default function About() {
                   {paragraph}
                 </p>
               ))}
+            </div>
+
+            {/* Quick Metrics Pills */}
+            <div className="about-metrics-row">
+              <div className="about-metric-pill">
+                <span className="metric-pill-val">2</span>
+                <span className="metric-pill-lbl">Play Store Apps</span>
+              </div>
+              <div className="about-metric-pill">
+                <span className="metric-pill-val">B.Tech</span>
+                <span className="metric-pill-lbl">IT Graduate</span>
+              </div>
+              <div className="about-metric-pill">
+                <span className="metric-pill-val">MEAN + Flutter</span>
+                <span className="metric-pill-lbl">Core Stack</span>
+              </div>
             </div>
 
             <div className="about-details-list">
@@ -90,7 +106,7 @@ export default function About() {
           </div>
 
           {/* Highlights / Principles Box */}
-          <div className="about-card highlights-card reveal-fade-up">
+          <div className="about-card highlights-card reveal-slide-right">
             <h3 className="card-heading hover-gradient-text">Core Competencies</h3>
             <ul className="principles-list">
               {highlights.map((item, index) => (

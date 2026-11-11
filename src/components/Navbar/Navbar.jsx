@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight, Code2 } from 'lucide-react';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { personalInfo, navigationLinks } from '../../data/portfolioData';
+import headerLogo from '../../assets/tech tools logo/transparent/header_logo.png';
 import './Navbar.css';
 
 export default function Navbar() {
@@ -44,10 +45,14 @@ export default function Navbar() {
   return (
     <header className={`navbar-header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container navbar-container">
-        {/* Brand Logo with Icon */}
+        {/* Brand Logo with Custom Image */}
         <a href="#hero" className="navbar-brand" onClick={closeMobileMenu}>
           <div className="brand-icon-box">
-            <Code2 size={20} className="brand-icon" />
+            <img 
+              src={headerLogo} 
+              alt="Varun R" 
+              className="brand-logo-img" 
+            />
           </div>
           <span className="brand-name hover-gradient-text">{personalInfo.name}</span>
         </a>
@@ -62,7 +67,7 @@ export default function Navbar() {
                 <li key={link.name} className="nav-item">
                   <a
                     href={link.href}
-                    className={`nav-link hover-gradient-text ${isActive ? 'active' : ''}`}
+                    className={`nav-link ${isActive ? 'active' : ''}`}
                   >
                     {link.name}
                   </a>

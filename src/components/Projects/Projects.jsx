@@ -53,15 +53,18 @@ export default function Projects() {
         <div className="projects-grid">
           {filteredProjects.map((project, index) => {
             const primaryLink = project.playStoreUrl || project.liveUrl || project.githubUrl;
+            const slideClass = index % 2 === 0 ? 'reveal-slide-left' : 'reveal-slide-right';
 
             return (
-              <div key={index} className="project-card reveal-fade-up">
+              <div key={index} className={`project-card ${slideClass}`}>
                 
                 <div className="project-top-row">
                   <div className="counter-badge-group">
                     <span className="project-counter">0{index + 1}</span>
                     {project.badge && (
-                      <span className="project-type-badge">{project.badge}</span>
+                      <span className={`project-type-badge ${project.badge === 'Play Store' ? 'badge-playstore' : ''}`}>
+                        {project.badge}
+                      </span>
                     )}
                   </div>
 

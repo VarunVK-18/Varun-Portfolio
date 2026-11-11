@@ -8,7 +8,7 @@
   background: var(--color-tertiary);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  padding: 2.5rem;
+  padding: 2rem;
   transition: border-color var(--transition-smooth), transform var(--transition-smooth);
 }
 
@@ -17,30 +17,70 @@
 }
 
 .card-heading {
-  font-size: 1.4rem;
+  font-size: 1.35rem;
   font-weight: 700;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
   color: var(--color-primary);
 }
 
 .about-bio {
   display: flex;
   flex-direction: column;
-  gap: 1.1rem;
+  gap: 1rem;
 }
 
 .bio-paragraph {
   color: var(--color-secondary);
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+
+/* Quick Metrics Row */
+.about-metrics-row {
+  display: flex;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+  margin-top: 1.25rem;
+}
+
+.about-metric-pill {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 0.65rem 1rem;
+  transition: all var(--transition-fast);
+}
+
+.about-metric-pill:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.metric-pill-val {
+  font-family: var(--font-title);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  line-height: 1.1;
+}
+
+.metric-pill-lbl {
+  font-size: 0.76rem;
+  color: var(--color-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-top: 0.2rem;
 }
 
 .about-details-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem;
-  margin-top: 1.75rem;
-  padding-top: 1.5rem;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
   border-top: 1px solid var(--color-border);
 }
 
@@ -58,8 +98,8 @@
 
 /* Education Box */
 .education-box {
-  margin-top: 1.75rem;
-  padding: 1.25rem 1.5rem;
+  margin-top: 1.5rem;
+  padding: 1.15rem 1.35rem;
   background: var(--color-white);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
@@ -125,7 +165,7 @@
 
 /* Buttons and text buttons as Black */
 .about-action {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }
 
 .btn-resume {
@@ -153,7 +193,7 @@
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1rem;
 }
 
 .principle-item {
@@ -179,8 +219,36 @@
 @media (max-width: 860px) {
   .about-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
   .about-card {
-    padding: 1.75rem;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .about-card {
+    padding: 1.25rem;
+  }
+  .about-metrics-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.65rem;
+  }
+  .about-metric-pill:last-child {
+    grid-column: span 2;
+  }
+  .education-header {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .edu-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .contact-details-grid {
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
   }
 }

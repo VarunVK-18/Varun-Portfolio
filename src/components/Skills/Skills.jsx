@@ -31,14 +31,19 @@ export default function Skills() {
 
         {/* Skills Cards Grid */}
         <div className="skills-grid">
-          {skillsData.map((group, index) => (
-            <div key={index} className="skills-card reveal-fade-up">
+          {skillsData.map((group, index) => {
+            const slideClass = index % 2 === 0 ? 'reveal-slide-left' : 'reveal-slide-right';
+            return (
+              <div key={index} className={`skills-card ${slideClass}`}>
               
               <div className="skills-category-header">
                 <div className="category-icon-box">
                   {getCategoryIcon(group.category)}
                 </div>
-                <h3 className="category-title hover-gradient-text">{group.category}</h3>
+                <div>
+                  <h3 className="category-title hover-gradient-text">{group.category}</h3>
+                  <span className="category-count">{group.skills.length} competencies</span>
+                </div>
               </div>
 
               <div className="skills-items-container">
@@ -51,7 +56,8 @@ export default function Skills() {
               </div>
 
             </div>
-          ))}
+            );
+          })}
         </div>
 
       </div>

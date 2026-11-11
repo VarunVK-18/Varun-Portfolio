@@ -24,8 +24,10 @@ export default function Experience() {
 
         {/* Experience Timeline */}
         <div className="timeline-container">
-          {experienceData.map((exp, index) => (
-            <div key={index} className="timeline-item reveal-fade-up">
+          {experienceData.map((exp, index) => {
+            const slideClass = index % 2 === 0 ? 'reveal-slide-left' : 'reveal-slide-right';
+            return (
+              <div key={index} className={`timeline-item ${slideClass}`}>
               
               {/* Timeline marker */}
               <div className="timeline-marker">
@@ -50,6 +52,12 @@ export default function Experience() {
                       <MapPin size={14} />
                       <span>{exp.location}</span>
                     </span>
+                    {index === 0 && (
+                      <span className="meta-badge current-role-badge">
+                        <span className="live-dot" />
+                        <span>Current Role</span>
+                      </span>
+                    )}
                   </div>
                 </div>
 
@@ -79,7 +87,8 @@ export default function Experience() {
               </div>
 
             </div>
-          ))}
+            );
+          })}
         </div>
 
       </div>

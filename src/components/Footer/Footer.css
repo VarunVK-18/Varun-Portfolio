@@ -1,17 +1,17 @@
 .footer-container {
   border-top: 1px solid var(--color-border);
   background-color: var(--color-tertiary);
-  padding: 4rem 0 2rem 0;
-  margin-top: 4rem;
+  padding: 3rem 0 1.75rem 0;
+  margin-top: 2.5rem;
 }
 
 .footer-content {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 2.5rem;
+  gap: 2rem;
   flex-wrap: wrap;
-  padding-bottom: 2.5rem;
+  padding-bottom: 2rem;
 }
 
 .footer-brand-side {
