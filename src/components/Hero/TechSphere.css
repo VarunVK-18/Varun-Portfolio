@@ -349,32 +349,47 @@
 
 @media (max-width: 640px) {
   :root {
-    --sphere-size: min(340px, 90vw);
-    --orbit-radius: calc(min(340px, 90vw) * 0.38);
-    --center-size: 120px;
-    --node-size: 36px;
+    --sphere-size: min(350px, 94vw);
+    --orbit-radius: calc(min(350px, 94vw) * 0.38);
+    --center-size: 135px;
+    --node-size: 42px;
   }
 
   .tech-sphere-wrapper {
     margin: 1.5rem auto 0 auto;
     overflow: hidden;
   }
+
+  .tech-floating-card {
+    padding: 6px;
+    border-radius: 12px;
+  }
 }
 
 @media (max-width: 420px) {
   :root {
-    --sphere-size: min(300px, 86vw);
-    --orbit-radius: calc(min(300px, 86vw) * 0.38);
-    --center-size: 110px;
-    --node-size: 32px;
+    --sphere-size: min(320px, 92vw);
+    --orbit-radius: calc(min(320px, 92vw) * 0.38);
+    --center-size: 124px;
+    --node-size: 38px;
+  }
+
+  .tech-floating-card {
+    padding: 5px;
+    border-radius: 10px;
   }
 }
 
 @media (max-width: 360px) {
   :root {
-    --sphere-size: 270px;
-    --orbit-radius: 98px;
-    --center-size: 96px;
-    --node-size: 28px;
+    --sphere-size: 290px;
+    --orbit-radius: 106px;
+    --center-size: 112px;
+    --node-size: 34px;
+  }
+
+  .tech-floating-card {
+    padding: 4px;
+    border-radius: 9px;
   }
 }
