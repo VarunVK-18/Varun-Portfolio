@@ -8,12 +8,15 @@
   padding: 1.1rem 1.25rem;
   background-color: transparent;
   border-bottom: 1px solid transparent;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(0) translateZ(0);
+  transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+              padding 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
   display: flex;
   justify-content: center;
   align-items: center;
   pointer-events: none;
   box-sizing: border-box;
+  will-change: transform, padding;
 }
 
 .navbar-container {
@@ -23,20 +26,30 @@
   width: 100%;
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0;
+  padding: 0.35rem 0.5rem;
   pointer-events: auto;
   box-sizing: border-box;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 9999px;
+  background: transparent;
+  border: 1px solid transparent;
+  outline: 1px solid transparent;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  transform: translateZ(0);
+  transition: max-width 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+              padding 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+              background 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+              box-shadow 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+              border-color 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+              outline-color 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+              backdrop-filter 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: max-width, padding, background, box-shadow;
 }
 
 /* ========================================================
    FLOATING DYNAMIC ISLAND / MACOS GLASSOMORPHISM ON SCROLL
 ======================================================== */
 .navbar-header.scrolled {
-  top: 10px;
-  left: 0;
-  right: 0;
-  width: 100%;
+  transform: translateY(8px) translateZ(0);
   padding: 0 1rem;
 }
 
@@ -49,9 +62,9 @@
   box-sizing: border-box;
   
   /* Ultra-refined Apple iOS/macOS Glassmorphism */
-  background: rgba(255, 255, 255, 0.82);
-  backdrop-filter: blur(28px) saturate(190%);
-  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
   
   /* Dual specular border highlighting Apple glass sheen */
   border: 1px solid rgba(255, 255, 255, 0.9);
@@ -59,8 +72,8 @@
   
   /* Soft ambient drop shadows matching macOS dock & iOS dynamic island */
   box-shadow: 
-    0 16px 36px -10px rgba(0, 0, 0, 0.1),
-    0 6px 16px -4px rgba(0, 0, 0, 0.05),
+    0 14px 32px -8px rgba(0, 0, 0, 0.08),
+    0 4px 12px -2px rgba(0, 0, 0, 0.04),
     inset 0 1px 1px 0 rgba(255, 255, 255, 0.95);
 }
 
@@ -270,7 +283,7 @@
   }
 
   .navbar-header.scrolled {
-    top: 8px;
+    transform: translateY(6px) translateZ(0);
     left: 0;
     right: 0;
     width: 100%;

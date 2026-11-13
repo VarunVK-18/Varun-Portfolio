@@ -98,7 +98,16 @@ export default function About() {
             )}
 
             <div className="about-action">
-              <a href="#contact" className="btn-resume">
+              <a 
+                href={personalInfo.resumeUrl} 
+                target="_blank" 
+                rel="noreferrer" 
+                className="btn-resume"
+              >
+                <span>View Resume</span>
+                <ArrowUpRight size={15} />
+              </a>
+              <a href="#contact" className="btn-connect">
                 <span>Connect with Me</span>
                 <ArrowUpRight size={15} />
               </a>

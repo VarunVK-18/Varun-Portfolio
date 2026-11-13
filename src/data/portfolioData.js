@@ -12,7 +12,7 @@ export const personalInfo = {
   email: "kumarvarun43255@gmail.com",
   phone: "+91 8072286963",
   status: "Open for Opportunities",
-  resumeUrl: "#contact",
+  resumeUrl: "https://drive.google.com/file/d/1B3h44LWAo8PJLJpKiafHdRLhkLJZRvfN/view?usp=drivesdk",
   bio: [
     "Information Technology graduate (B.Tech, 2025) and App Developer with hands-on industry experience building scalable cross-platform mobile apps and web platforms using Flutter, Dart, Node.js, MongoDB, Angular, and TypeScript.",
     "Experienced in end-to-end application engineering: designing intuitive modern UIs, integrating secure RESTful APIs, configuring Firebase and 2FA authentication, managing reactive state (Provider & Riverpod), and architecting real-world CRM and consumer applications published on the Google Play Store."
@@ -62,7 +62,7 @@ export const skillsData = [
 
 export const experienceData = [
   {
-    role: "App Developer Intern",
+    role: "Full Stack Developer Intern",
     company: "Softrate",
     period: "Apr 2026 – Present",
     location: "India",

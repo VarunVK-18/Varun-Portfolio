@@ -4,6 +4,8 @@ import { GithubIcon, LinkedinIcon } from '../Icons/Icons';
 import { personalInfo } from '../../data/portfolioData';
 import './Footer.css';
 
+const CURRENT_YEAR = new Date().getFullYear();
+
 export default function Footer() {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -70,7 +72,7 @@ export default function Footer() {
 
       <div className="container footer-bottom-strip">
         <p className="copyright-text">
-          &copy; {new Date().getFullYear()} {personalInfo.name}. All rights reserved.
+          &copy; {CURRENT_YEAR} {personalInfo.name}. All rights reserved.
         </p>
       </div>
     </footer>

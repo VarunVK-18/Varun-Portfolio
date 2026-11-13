@@ -203,54 +203,57 @@ button {
 /* Reveal on scroll animations */
 .reveal-fade-up {
   opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(28px) translateZ(0);
+  transition: opacity 0.55s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
   will-change: opacity, transform;
+  backface-visibility: hidden;
 }
 
 .reveal-fade-up.active {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) translateZ(0);
 }
 
 /* Slide in from Left */
 .reveal-slide-left {
   opacity: 0;
-  transform: translateX(-48px);
-  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateX(-36px) translateZ(0);
+  transition: opacity 0.55s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
   will-change: opacity, transform;
+  backface-visibility: hidden;
 }
 
 .reveal-slide-left.active {
   opacity: 1;
-  transform: translateX(0);
+  transform: translateX(0) translateZ(0);
 }
 
 /* Slide in from Right */
 .reveal-slide-right {
   opacity: 0;
-  transform: translateX(48px);
-  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateX(36px) translateZ(0);
+  transition: opacity 0.55s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
   will-change: opacity, transform;
+  backface-visibility: hidden;
 }
 
 .reveal-slide-right.active {
   opacity: 1;
-  transform: translateX(0);
+  transform: translateX(0) translateZ(0);
 }
 
 /* Stagger transition delays for alternating items */
-.reveal-delay-1 { transition-delay: 0.1s; }
-.reveal-delay-2 { transition-delay: 0.18s; }
-.reveal-delay-3 { transition-delay: 0.26s; }
+.reveal-delay-1 { transition-delay: 0.08s; }
+.reveal-delay-2 { transition-delay: 0.14s; }
+.reveal-delay-3 { transition-delay: 0.2s; }
 
 /* Keep subtle on mobile so no horizontal layout shift occurs */
 @media (max-width: 640px) {
   .reveal-slide-left {
-    transform: translateX(-24px);
+    transform: translateX(-18px) translateZ(0);
   }
   .reveal-slide-right {
-    transform: translateX(24px);
+    transform: translateX(18px) translateZ(0);
   }
 }
 

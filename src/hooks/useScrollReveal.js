@@ -10,7 +10,6 @@ export function useScrollReveal() {
 
     if (!elements.length) return;
 
-    // Use IntersectionObserver with a responsive rootMargin to detect scrolling early
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -20,22 +19,23 @@ export function useScrollReveal() {
         });
       },
       {
-        threshold: 0.12,
+        threshold: 0.15,
         rootMargin: '0px 0px -40px 0px',
       }
     );
 
     elements.forEach((el) => {
-      // Check if already in viewport on initial load
+      // Only mark active immediately if it's already near the top on load (Hero section)
       const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight * 0.95 && rect.bottom > 0) {
+      if (rect.top < window.innerHeight * 0.75 && rect.bottom > 0) {
         el.classList.add('active');
+      } else {
+        observer.observe(el);
       }
-      observer.observe(el);
     });
 
     return () => {
-      elements.forEach((el) => observer.unobserve(el));
+      observer.disconnect();
     };
   }, []);
 }

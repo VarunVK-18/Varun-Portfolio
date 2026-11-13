@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { personalInfo, navigationLinks } from '../../data/portfolioData';
 import headerLogo from '../../assets/tech tools logo/transparent/header_logo.png';
@@ -9,28 +9,57 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
 
+  const isScrolledRef = useRef(false);
+  const activeSectionRef = useRef('hero');
+
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+    let ticking = false;
+    const sections = ['hero', 'about', 'experience', 'projects', 'skills', 'contact'];
 
-      // Detect active section based on scroll offset
-      const sections = ['hero', 'about', 'experience', 'projects', 'skills', 'contact'];
-      const scrollPos = window.scrollY + 200;
+    const updateNavState = () => {
+      const scrollY = window.scrollY;
 
-      for (const section of sections) {
-        const el = document.getElementById(section);
+      // 1. Scrolled threshold
+      const nextScrolled = scrollY > 20;
+      if (nextScrolled !== isScrolledRef.current) {
+        isScrolledRef.current = nextScrolled;
+        setIsScrolled(nextScrolled);
+      }
+
+      // 2. Active section detection
+      const scrollPos = scrollY + 220;
+      let currentSection = 'hero';
+
+      for (let i = 0; i < sections.length; i++) {
+        const el = document.getElementById(sections[i]);
         if (el) {
           const top = el.offsetTop;
           const height = el.offsetHeight;
           if (scrollPos >= top && scrollPos < top + height) {
-            setActiveSection(section);
+            currentSection = sections[i];
             break;
           }
         }
       }
+
+      if (currentSection !== activeSectionRef.current) {
+        activeSectionRef.current = currentSection;
+        setActiveSection(currentSection);
+      }
+
+      ticking = false;
+    };
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateNavState);
+        ticking = true;
+      }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
+    updateNavState(); // Check immediately on mount
+
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -58,59 +87,61 @@ export default function Navbar() {
         </a>
 
         {/* Desktop Navigation */}
-        <nav className="navbar-nav desktop-nav" aria-label="Main Navigation">
+        <nav className="desktop-nav" aria-label="Main Navigation">
           <ul className="nav-list">
-            {navigationLinks.map((link) => {
-              const sectionId = link.href.replace('#', '');
-              const isActive = activeSection === sectionId;
-              return (
-                <li key={link.name} className="nav-item">
-                  <a
-                    href={link.href}
-                    className={`nav-link ${isActive ? 'active' : ''}`}
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              );
-            })}
+            {navigationLinks.map((link) => (
+              <li key={link.name}>
+                <a
+                  href={link.href}
+                  className={`nav-link ${activeSection === link.href.substring(1) ? 'active' : ''}`}
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))}
           </ul>
         </nav>
 
-        {/* Action Button */}
-        <div className="navbar-actions desktop-actions">
+        {/* Desktop CTA Action */}
+        <div className="desktop-actions">
           <a href="#contact" className="btn-primary">
             <span>Get in Touch</span>
             <ArrowUpRight size={16} />
           </a>
         </div>
 
-        {/* Mobile Hamburger Toggle */}
+        {/* Mobile Hamburger Toggle Button */}
         <button
           className="mobile-toggle-btn"
           onClick={toggleMobileMenu}
           aria-label={mobileMenuOpen ? 'Close Navigation Menu' : 'Open Navigation Menu'}
+          aria-expanded={mobileMenuOpen}
         >
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
-      {/* Mobile Drawer Menu */}
+      {/* Mobile Glassmorphic Navigation Drawer */}
       <div className={`mobile-drawer ${mobileMenuOpen ? 'open' : ''}`}>
         <ul className="mobile-nav-list">
           {navigationLinks.map((link) => (
-            <li key={link.name} className="mobile-nav-item">
+            <li key={link.name}>
               <a
                 href={link.href}
-                className="mobile-nav-link hover-gradient-text"
+                className="mobile-nav-link"
                 onClick={closeMobileMenu}
               >
                 {link.name}
               </a>
             </li>
           ))}
-          <li className="mobile-nav-item" style={{ marginTop: '1rem' }}>
-            <a href="#contact" className="btn-primary" onClick={closeMobileMenu}>
+          <li>
+            <a
+              href="#contact"
+              className="btn-primary"
+              onClick={closeMobileMenu}
+              style={{ width: '100%', justifyContent: 'center', marginTop: '0.5rem' }}
+            >
               <span>Get in Touch</span>
               <ArrowUpRight size={16} />
             </a>
